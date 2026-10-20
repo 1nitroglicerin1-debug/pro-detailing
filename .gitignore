@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Temp / artifacts
+map.txt
+map_logo.py
+
+# OS
+.DS_Store
+Thumbs.db
