@@ -1,329 +1,483 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PRO Detailing — детейлинг-студия в Екатеринбурге | Химчистка, полировка, керамика</title>
-  <meta name="description" content="PRO Detailing — детейлинг-студия в Екатеринбурге. Химчистка салона, полировка кузова, нанокерамика, оклейка плёнкой, PDR без покраски. Честные цены, гарантия. Тел. +7 (343) 268-61-61.">
-  <meta property="og:title" content="PRO Detailing — детейлинг-студия в Екатеринбурге">
-  <meta property="og:description" content="Совершенный вид авто по честным ценам. Химчистка, керамика, оклейка, PDR.">
-  <link rel="icon" type="image/png" href="assets/logo.png">
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PRO-DETAILING — детейлинг-студия в Екатеринбурге, ул. Щорса 128</title>
+<meta name="description" content="Полировка и керамика, химчистка салона, оклейка плёнкой, PDR и ремонт стёкол. Каждый автомобиль ведёт один мастер. Смета до начала работ. Щорса 128, 10:00–20:00 ежедневно.">
+<meta name="theme-color" content="#0D0F12">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PRO-DETAILING — мастер, а не конвейер">
+<meta property="og:description" content="Детейлинг-студия в Екатеринбурге. Смета до начала работ, без «найденных» по ходу доп. услуг.">
+<meta property="og:image" content="assets/logo.png">
+<link rel="icon" href="assets/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="assets/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "AutoWash"],
+  "name": "PRO-DETAILING",
+  "description": "Детейлинг-студия: полировка и керамика, химчистка салона, оклейка плёнкой, PDR и ремонт стёкол.",
+  "image": "assets/logo.png",
+  "telephone": "+73432686161",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ул. Щорса, 128",
+    "addressLocality": "Екатеринбург",
+    "addressCountry": "RU"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "10:00",
+    "closes": "20:00"
+  }],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Услуги",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Полировка и керамическое покрытие"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Химчистка салона"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Оклейка защитной плёнкой"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "PDR — удаление вмятин без покраски, ремонт стёкол"}}
+    ]
+  }
+}
+</script>
+
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Перейти к содержанию</a>
 
-  <!-- ШАПКА -->
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a href="index.html" class="logo">
-        <img src="assets/logo.png" alt="PRO Detailing">
-        <span>PRO&nbsp;Detailing<small>детейлинг-студия</small></span>
-      </a>
+<!-- ===== Шапка ===== -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="PRO-DETAILING, на главную">
+      <b>PRO-<span class="chrome">DETAILING</span></b>
+      <small>Екатеринбург</small>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="keramika.html">Полировка и керамика</a>
+      <a href="himchistka.html">Химчистка</a>
+      <a href="okleyka.html">Оклейка</a>
+      <a href="pdr-stekla.html">PDR и стёкла</a>
+      <a href="kontakty.html">Контакты</a>
+    </nav>
+    <div class="header-meta">
+      <a class="header-phone" href="tel:+73432686161">+7 (343) 268-61-61</a>
+      <span class="status" data-status><span class="dot" aria-hidden="true"></span><span data-status-text>10:00–20:00 ежедневно</span></span>
+    </div>
+    <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mnav">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
 
-      <nav class="main-nav" data-nav aria-label="Основная навигация">
-        <a href="index.html">Главная</a>
-        <a href="himchistka.html">Химчистка</a>
-        <a href="keramika.html">Керамика</a>
-        <a href="okleyka.html">Оклейка</a>
-        <a href="pdr-stekla.html">PDR и стёкла</a>
-        <a href="kontakty.html">Контакты</a>
-      </nav>
+<nav class="mnav" id="mnav" aria-label="Мобильная навигация">
+  <a href="keramika.html">Полировка и керамика</a>
+  <a href="himchistka.html">Химчистка салона</a>
+  <a href="okleyka.html">Оклейка плёнкой</a>
+  <a href="pdr-stekla.html">PDR и стёкла</a>
+  <a href="kontakty.html">Контакты</a>
+  <p class="mono">ул. Щорса 128 · 10:00–20:00 ежедневно</p>
+</nav>
 
-      <div class="site-header__actions">
-        <a class="phone-link" href="tel:+73432686161">+7 (343) 268-61-61</a>
-        <a class="button button--primary button--sm header-cta" href="#booking">Записаться</a>
-        <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" data-menu-toggle>
-          <span></span><span></span><span></span>
-        </button>
+<main id="main">
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="label reveal"><span class="tick"></span>Детейлинг-студия · ул. Щорса 128</p>
+          <h1 id="hero-title" class="reveal" style="margin-top:24px">Мастер,<br>а не <span class="chrome">конвейер.</span></h1>
+          <p class="hero-lead reveal">
+            Каждый автомобиль от приёмки до выдачи ведёт один мастер.
+            <em>Смета — до начала работ.</em> Мы не «находим» дополнительные услуги, когда машина уже разобрана.
+          </p>
+          <div class="hero-cta reveal">
+            <a class="btn btn-primary" href="tel:+73432686161">Позвонить мастеру <span class="arr" aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="#services">Услуги и состав работ</a>
+          </div>
+          <div class="hero-facts mono reveal">
+            <span>Полировка и керамика</span>
+            <span>Химчистка салона</span>
+            <span>Оклейка плёнкой</span>
+            <span>PDR и стёкла</span>
+          </div>
+        </div>
+
+        <figure class="hero-photo reveal" style="margin:0" data-img>
+          <!-- Замените на собственный кадр из бокса: это сильнее любого стока -->
+          <img
+            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80"
+            alt="Спортивный автомобиль с глянцевым кузовом в студийном свете"
+            width="1400" height="1750" fetchpriority="high">
+          <figcaption class="mono">Работаем ежедневно, 10:00–20:00</figcaption>
+        </figure>
       </div>
     </div>
-  </header>
 
-  <main>
+    <!-- Линейный силуэт и волна: отсылка к обложке ВК, без свечения -->
+    <div class="lineband" id="lineband" aria-hidden="true">
+      <svg class="wave" viewBox="0 0 1440 240" preserveAspectRatio="none" id="wave"></svg>
+      <svg class="car" viewBox="0 0 1440 240" preserveAspectRatio="xMidYMid meet">
+        <g transform="translate(560 30)">
+          <line class="speed draw" pathLength="1" x1="-420" y1="92"  x2="-30" y2="92"/>
+          <line class="speed draw d2" pathLength="1" x1="-300" y1="120" x2="0" y2="120"/>
+          <line class="speed draw d3" pathLength="1" x1="-200" y1="148" x2="20" y2="148"/>
+          <path class="body draw" pathLength="1"
+            d="M40 168 C40 150 62 140 112 133 L232 118 C292 82 362 62 452 60 C532 58 592 74 642 100 L722 112 C752 116 768 130 770 150 L772 168 L660 168 M580 168 L230 168 M150 168 L40 168"/>
+          <path class="body draw d2" pathLength="1" d="M300 113 C352 84 410 74 470 74 C520 74 556 86 582 102 Z"/>
+          <circle class="accent draw d2" pathLength="1" cx="190" cy="168" r="34"/>
+          <circle class="accent draw d2" pathLength="1" cx="620" cy="168" r="34"/>
+          <path class="accent draw d3" pathLength="1" d="M700 120 L748 126"/>
+        </g>
+      </svg>
+    </div>
+  </section>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero__grid">
+  <!-- ===== Услуги ===== -->
+  <section class="section" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="section-head">
         <div>
-          <p class="kicker">Детейлинг-студия · Екатеринбург</p>
-          <h1 class="hero__title">Совершенный вид авто&nbsp;— <span class="accent-serif">по честным ценам</span></h1>
-          <p class="lead hero__lead">Химчистка салона, полировка и керамика, оклейка плёнкой и удаление вмятин без покраски. Работаем ежедневно, каждый автомобиль отдаём мастеру, а не конвейеру.</p>
-          <div class="hero__actions">
-            <a class="button button--primary" href="#booking">Записаться на сервис</a>
-            <a class="button button--ghost" href="#services">Посмотреть услуги и цены</a>
-          </div>
-          <div class="hero__meta">
-            <span><strong>10:00–20:00</strong> ежедневно</span>
-            <span><strong>+7 (343) 268-61-61</strong></span>
-            <span>ул. Щорса, 128</span>
-          </div>
+          <p class="label reveal"><span class="tick"></span>Услуги</p>
+          <h2 id="services-title" class="reveal" style="margin-top:20px">Кузов, салон, стёкла — в одном боксе</h2>
         </div>
-        <div class="frame"><span class="frame__c" aria-hidden="true"></span>
-          <div class="photo-slot photo-slot--hero" data-photo="hero-main" data-photo-alt="Автомобиль в работе в студии PRO Detailing" role="img" aria-label="Автомобиль в работе в студии PRO Detailing">
-            <span class="photo-slot__label">Фото студии — assets/images/hero-main.webp</span>
-          </div>
-        </div>
+        <p class="reveal">На каждой странице услуги указан состав работ. Итоговую сумму называем после осмотра, при вас, и не меняем её без вашего согласия.</p>
       </div>
-    </section>
 
-    <!-- УСЛУГИ -->
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker">Услуги</p>
-          <h2 class="h2">Полный цикл детейлинга</h2>
-          <p class="lead">Всё, что нужно вашему автомобилю — в одном месте и под контролем мастеров.</p>
-        </div>
+      <div class="bento">
+        <article class="card card-main reveal">
+          <div class="media" data-img>
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1600&q=80"
+              alt="Полировка кузова автомобиля машинкой" width="1600" height="1900">
+          </div>
+          <div class="card-body">
+            <p class="num mono">01 — Кузов</p>
+            <h3>Полировка и керамическое покрытие</h3>
+            <p>Сначала замеряем толщину лакокрасочного покрытия, потом выбираем, сколько снимать. Лак — расходник, который не восстанавливается.</p>
+            <ul class="bullets">
+              <li>Замер толщиномером по каждому элементу</li>
+              <li>Удаление рисок, голограмм и матовости</li>
+              <li>Керамика и инструкция по уходу после нанесения</li>
+            </ul>
+            <span class="more">Состав работ <span aria-hidden="true">→</span></span>
+          </div>
+          <a class="card-link" href="keramika.html" aria-label="Полировка и керамическое покрытие — подробнее"></a>
+        </article>
 
-        <div class="grid grid--4">
-          <a href="himchistka.html" class="service-card reveal">
-            <div class="photo-slot photo-slot--card" data-photo="service-himchistka" data-photo-alt="Химчистка салона"></div>
-            <div class="service-card__content">
-              <h3 class="service-card__title">Химчистка салона</h3>
-              <p class="service-card__desc">Глубокая чистка сидений, ковров и потолка с химчисткой пластика и уходом за кожей.</p>
-              <div class="service-card__price">от 4 500 ₽</div>
-              <span class="text-link">Подробнее</span>
-            </div>
-          </a>
-          <a href="keramika.html" class="service-card reveal">
-            <div class="photo-slot photo-slot--card" data-photo="service-keramika" data-photo-alt="Полировка и керамика кузова"></div>
-            <div class="service-card__content">
-              <h3 class="service-card__title">Полировка и керамика</h3>
-              <p class="service-card__desc">Восстановление ЛКП и защитные покрытия: от воска до нанокерамики с гарантией.</p>
-              <div class="service-card__price">от 6 000 ₽</div>
-              <span class="text-link">Подробнее</span>
-            </div>
-          </a>
-          <a href="okleyka.html" class="service-card reveal">
-            <div class="photo-slot photo-slot--card" data-photo="service-okleyka" data-photo-alt="Оклейка автомобиля плёнкой"></div>
-            <div class="service-card__content">
-              <h3 class="service-card__title">Оклейка плёнкой</h3>
-              <p class="service-card__desc">Антигравийная защита полиуретаном и цветная виниловая оклейка кузова.</p>
-              <div class="service-card__price">от 15 000 ₽</div>
-              <span class="text-link">Подробнее</span>
-            </div>
-          </a>
-          <a href="pdr-stekla.html" class="service-card reveal">
-            <div class="photo-slot photo-slot--card" data-photo="service-pdr" data-photo-alt="Удаление вмятин PDR"></div>
-            <div class="service-card__content">
-              <h3 class="service-card__title">PDR и стёкла</h3>
-              <p class="service-card__desc">Удаление вмятин без покраски, ремонт сколов и трещин лобового стекла.</p>
-              <div class="service-card__price">от 1 500 ₽</div>
-              <span class="text-link">Подробнее</span>
-            </div>
-          </a>
-        </div>
+        <article class="card reveal">
+          <div class="media" data-img>
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=1000&q=80"
+              alt="Салон автомобиля после химчистки" width="1000" height="800">
+          </div>
+          <div class="card-body">
+            <p class="num mono">02 — Салон</p>
+            <h3>Химчистка салона</h3>
+            <ul class="bullets">
+              <li>Отдельные составы для кожи, ткани и алькантары</li>
+              <li>Сушка в студии, а не у вас в гараже</li>
+            </ul>
+            <span class="more">Подробнее <span aria-hidden="true">→</span></span>
+          </div>
+          <a class="card-link" href="himchistka.html" aria-label="Химчистка салона — подробнее"></a>
+        </article>
+
+        <article class="card reveal">
+          <div class="media" data-img>
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1000&q=80"
+              alt="Тёмный автомобиль с защитной плёнкой на кузове" width="1000" height="800">
+          </div>
+          <div class="card-body">
+            <p class="num mono">03 — Защита</p>
+            <h3>Оклейка плёнкой</h3>
+            <ul class="bullets">
+              <li>Зоны риска: капот, бампер, фары, пороги</li>
+              <li>Полная оклейка кузова</li>
+            </ul>
+            <span class="more">Подробнее <span aria-hidden="true">→</span></span>
+          </div>
+          <a class="card-link" href="okleyka.html" aria-label="Оклейка плёнкой — подробнее"></a>
+        </article>
+
+        <article class="card card-wide reveal">
+          <div class="media" data-img>
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&q=80"
+              alt="Передняя часть автомобиля с лобовым стеклом" width="1600" height="900">
+          </div>
+          <div class="card-body">
+            <p class="num mono">04 — Ремонт</p>
+            <h3>PDR и стёкла</h3>
+            <p>Удаляем вмятины без покраски, если металл и ЛКП это позволяют. Если не позволяют, скажем сразу и не возьмём деньги за попытку.</p>
+            <ul class="bullets">
+              <li>Вмятины от града и парковки</li>
+              <li>Ремонт сколов на лобовом стекле</li>
+            </ul>
+            <span class="more">Подробнее <span aria-hidden="true">→</span></span>
+          </div>
+          <a class="card-link" href="pdr-stekla.html" aria-label="PDR и ремонт стёкол — подробнее"></a>
+        </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ПОЧЕМУ МЫ -->
-    <section class="section section--tight">
-      <div class="container">
-        <div class="grid grid--3">
-          <div class="guarantee-item reveal">
-            <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
-            <div><h4>Гарантия на работы</h4><p>Даём гарантию на все виды покрытий и оклейку — фиксируем в договоре.</p></div>
-          </div>
-          <div class="guarantee-item reveal">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-            <div><h4>Сроки без сюрпризов</h4><p>Называем время работ заранее и соблюдаем его. Статус — по запросу в WhatsApp.</p></div>
-          </div>
-          <div class="guarantee-item reveal">
-            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
-            <div><h4>Честные цены</h4><p>Смета до начала работ. Не «находим» дополнительные услуги в процессе.</p></div>
-          </div>
-        </div>
+  <!-- ===== До / После ===== -->
+  <section class="section" style="padding-top:0" aria-labelledby="ba-title">
+    <div class="wrap ba-wrap">
+      <div>
+        <p class="label reveal"><span class="tick"></span>Результат</p>
+        <h2 id="ba-title" class="reveal" style="margin-top:20px;font-size:clamp(32px,4vw,52px)">Разница видна под лампой</h2>
+        <p class="reveal">Сдаём автомобиль под тем же светом, при котором принимали. Мастер показывает каждый элемент, который был в смете.</p>
       </div>
-    </section>
 
-    <!-- ДО / ПОСЛЕ -->
-    <section class="section section--tight">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker">Наши работы</p>
-          <h2 class="h2">До и <span class="accent-serif">после</span></h2>
-        </div>
-        <div class="before-after reveal" data-before-after>
-          <div class="before-after__image before-after__image--after">
-            <div class="photo-slot" data-photo="after-01" data-photo-alt="Авто после детейлинга"></div>
-          </div>
-          <div class="before-after__image before-after__image--before" data-before-layer style="width:50%">
-            <div class="photo-slot" data-photo="before-01" data-photo-alt="Авто до детейлинга"></div>
-          </div>
-          <span class="ba-label ba-label--before">До</span>
-          <span class="ba-label ba-label--after">После</span>
-          <div class="before-after__divider" data-before-divider style="left:50%"></div>
-          <input class="before-after__range" type="range" min="0" max="100" value="50" aria-label="Сравнить результат до и после" data-before-range>
-        </div>
+      <!-- Замените на реальную пару «до/после» из вашей работы: один ракурс, один свет -->
+      <div class="ba reveal" id="ba" data-img>
+        <img class="before" loading="lazy"
+          src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1800&q=80"
+          alt="Кузов до полировки: матовый, с потерей глубины цвета" width="1800" height="1125">
+        <img class="after" loading="lazy"
+          src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1800&q=80"
+          alt="Кузов после полировки: глубокий глянец" width="1800" height="1125">
+        <span class="ba-tag l mono">До</span>
+        <span class="ba-tag r mono">После</span>
+        <span class="ba-line" aria-hidden="true"></span>
+        <input type="range" min="0" max="100" value="50" step="1" aria-label="Сравнение до и после полировки">
+        <span class="ba-knob" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg>
+        </span>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ЭТАПЫ -->
-    <section class="section section--tight">
-      <div class="container">
-        <div class="section-head section-head--center reveal">
-          <p class="kicker kicker--center">Как мы работаем</p>
-          <h2 class="h2">4 шага до идеального авто</h2>
-        </div>
-        <div class="grid grid--4 steps">
-          <div class="step reveal"><h4>Заявка</h4><p>Оставляете заявку на сайте или звоните. Уточняем модель авто и задачи.</p></div>
-          <div class="step reveal"><h4>Осмотр и смета</h4><p>Мастер осматривает автомобиль и называет точную цену и сроки до начала работ.</p></div>
-          <div class="step reveal"><h4>Работы</h4><p>Выполняем работы по регламенту. Присылаете фото этапов, если нужно.</p></div>
-          <div class="step reveal"><h4>Приёмка</h4><p>Вы принимаете работу, мы даём рекомендации по уходу и гарантию.</p></div>
-        </div>
+  <!-- ===== Лист приёмки ===== -->
+  <section class="section protocol" aria-labelledby="protocol-title">
+    <div class="wrap protocol-grid">
+      <div>
+        <p class="label reveal"><span class="tick"></span>Как мы работаем</p>
+        <h2 id="protocol-title" class="reveal" style="margin-top:20px">Каждый автомобиль отдаём мастеру, а не конвейеру.</h2>
+        <p class="lead reveal">Один человек принимает машину, делает работу и отдаёт её вам. Поэтому он помнит, что было на кузове до начала, и отвечает за результат лично.</p>
       </div>
-    </section>
 
-    <!-- ОТЗЫВЫ -->
-    <section class="section section--tight">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker">Отзывы</p>
-          <h2 class="h2">Что говорят клиенты</h2>
+      <dl class="sheet reveal">
+        <div class="sheet-row">
+          <span class="step mono">01</span>
+          <dt>Осмотр при вас</dt>
+          <dd>Сколы, риски, следы прошлых ремонтов фиксируем <b>до начала работ</b>, а не после.</dd>
         </div>
-        <div class="grid grid--3">
-          <div class="review-card reveal">
-            <div class="review-card__stars">★★★★★</div>
-            <p class="review-card__text">Делал химчистку после зимы — салон как из автосалона. Реально испачканные коврики отмыли, запахов нет. Цена совпала с озвученной.</p>
-            <div class="review-card__author">
-              <div class="review-card__author-avatar">А</div>
-              <div><div class="review-card__author-name">Артём</div><div class="review-card__author-meta">Химчистка салона</div></div>
-            </div>
-          </div>
-          <div class="review-card reveal">
-            <div class="review-card__stars">★★★★★</div>
-            <p class="review-card__text">Бронировал переднюю часть полиуретаном. Оклеили за день, кромки завёрнуты аккуратно, через полгода ни одного отслоения.</p>
-            <div class="review-card__author">
-              <div class="review-card__author-avatar">Д</div>
-              <div><div class="review-card__author-name">Дмитрий</div><div class="review-card__author-meta">Оклейка полиуретаном</div></div>
-            </div>
-          </div>
-          <div class="review-card reveal">
-            <div class="review-card__stars">★★★★★</div>
-            <p class="review-card__text">Убрали вмятину на двери без покраски за пару часов. Даже следа не осталось, и заднюю панель не перекрашивали. Рекомендую.</p>
-            <div class="review-card__author">
-              <div class="review-card__author-avatar">М</div>
-              <div><div class="review-card__author-name">Марина</div><div class="review-card__author-meta">PDR</div></div>
-            </div>
-          </div>
+        <div class="sheet-row">
+          <span class="step mono">02</span>
+          <dt>Замер ЛКП</dt>
+          <dd>Толщиномер по каждому элементу. Если лака мало, предложим щадящий вариант.</dd>
         </div>
-      </div>
-    </section>
+        <div class="sheet-row">
+          <span class="step mono">03</span>
+          <dt>Смета</dt>
+          <dd><b>Фиксируем сумму до старта.</b> Мы не «находим» дополнительные услуги по ходу работы.</dd>
+        </div>
+        <div class="sheet-row">
+          <span class="step mono">04</span>
+          <dt>Доп. работы</dt>
+          <dd>Только после звонка и вашего согласия. Без согласия ничего не делаем и в счёт не включаем.</dd>
+        </div>
+        <div class="sheet-row">
+          <span class="step mono">05</span>
+          <dt>Выдача</dt>
+          <dd>Под светом, вместе с мастером, по каждому пункту сметы.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
 
-    <!-- FAQ -->
-    <section class="section section--tight">
-      <div class="container">
-        <div class="section-head section-head--center reveal">
-          <p class="kicker kicker--center">Вопросы</p>
-          <h2 class="h2">Частые вопросы</h2>
-        </div>
-        <div class="faq reveal">
-          <div class="faq-item" data-faq-item>
-            <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-1" data-faq-button>Сколько времени занимает химчистка салона?</button>
-            <div class="faq-item__answer" id="faq-1" hidden data-faq-answer>Полная химчистка — от 4 до 8 часов в зависимости от состояния салона. Точный срок скажем после осмотра.</div>
-          </div>
-          <div class="faq-item" data-faq-item>
-            <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-2" data-faq-button>Есть ли гарантия на керамику и плёнку?</button>
-            <div class="faq-item__answer" id="faq-2" hidden data-faq-answer>Да. На керамику — до 3 лет в зависимости от состава, на полиуретановую плёнку — до 5 лет. Условия фиксируем в договоре.</div>
-          </div>
-          <div class="faq-item" data-faq-item>
-            <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-3" data-faq-button>Нужна ли запись или можно приехать сразу?</button>
-            <div class="faq-item__answer" id="faq-3" hidden data-faq-answer>Лучше записаться — так мы гарантируем время работы мастера. Позвоните или оставьте заявку, подтверждаем в течение рабочего дня.</div>
-          </div>
-          <div class="faq-item" data-faq-item>
-            <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-4" data-faq-button>Можно ли убрать вмятину без покраски?</button>
-            <div class="faq-item__answer" id="faq-4" hidden data-faq-answer>В большинстве случаев да — технология PDR позволяет убрать вмятины без повреждения краски, если металл не деформирован сильно и ЛКП цело.</div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- ===== Контакты ===== -->
+  <section class="section contacts" id="contacts" aria-labelledby="contacts-title">
+    <div class="wrap contacts-grid">
+      <div>
+        <p class="label reveal"><span class="tick"></span>Контакты</p>
+        <h2 id="contacts-title" class="reveal" style="margin-top:20px"><span class="chrome">Щорса,<br>128</span></h2>
 
-    <!-- CTA + ФОРМА -->
-    <section class="section" id="booking">
-      <div class="container">
-        <div class="cta-band reveal">
-          <div class="cta-band__grid">
-            <div>
-              <p class="kicker">Запись</p>
-              <h2 class="h2 mt-16">Запишитесь <span class="accent-serif">на сервис</span></h2>
-              <p class="lead mt-16">Оставьте заявку — перезвоним в рабочее время, ответим на вопросы и назовём точную цену для вашего авто.</p>
-              <div class="hero__meta" style="border-top: 0; margin-top: 24px; padding-top: 0;">
-                <span><strong>+7 (343) 268-61-61</strong></span>
-                <span><a href="https://wa.me/79527270666" target="_blank" rel="noopener">WhatsApp</a></span>
-                <span><a href="mailto:info@pro-detailing.ru">info@pro-detailing.ru</a></span>
-              </div>
-            </div>
-            <form class="booking-form" data-booking-form id="booking-form">
-              <input type="hidden" name="page" value="index">
-              <label>Имя<input type="text" name="name" autocomplete="name" required minlength="2"></label>
-              <label>Телефон<input type="tel" name="phone" autocomplete="tel" inputmode="tel" required placeholder="+7 900 000-00-00"></label>
-              <label>Услуга
-                <select name="service" required>
-                  <option value="">Выберите услугу</option>
-                  <option value="himchistka">Химчистка</option>
-                  <option value="keramika">Полировка / керамика</option>
-                  <option value="okleyka">Оклейка плёнкой</option>
-                  <option value="pdr-stekla">PDR и стёкла</option>
-                </select>
-              </label>
-              <label class="form-consent"><input type="checkbox" name="consent" required><span>Согласен на обработку персональных данных</span></label>
-              <button class="button button--primary" type="submit">Отправить заявку</button>
-              <div class="form-status" data-form-status aria-live="polite"></div>
-            </form>
+        <div class="c-list reveal">
+          <div class="c-row">
+            <span class="label">Телефон</span>
+            <a class="c-phone" href="tel:+73432686161">+7 (343) 268-61-61</a>
           </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ПОДВАЛ -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="site-footer__grid">
-        <div>
-          <a href="index.html" class="logo" style="margin-bottom:16px">
-            <img src="assets/logo.png" alt="PRO Detailing">
-            <span>PRO&nbsp;Detailing</span>
-          </a>
-          <p class="site-footer__about">Детейлинг-студия в Екатеринбурге. Совершенный вид авто по честным ценам.</p>
-        </div>
-        <div>
-          <h4>Услуги</h4>
-          <div class="site-footer__links">
-            <a href="himchistka.html">Химчистка салона</a>
-            <a href="keramika.html">Полировка и керамика</a>
-            <a href="okleyka.html">Оклейка плёнкой</a>
-            <a href="pdr-stekla.html">PDR и стёкла</a>
-          </div>
-        </div>
-        <div>
-          <h4>Студия</h4>
-          <div class="site-footer__links">
-            <a href="kontakty.html">Контакты</a>
-            <a href="index.html#booking">Записаться</a>
-            <a href="index.html#faq">Вопросы</a>
-          </div>
-        </div>
-        <div>
-          <h4>Контакты</h4>
-          <div class="site-footer__links">
-            <a href="tel:+73432686161">+7 (343) 268-61-61</a>
-            <a href="https://wa.me/79527270666" target="_blank" rel="noopener">WhatsApp +7 (952) 727-06-66</a>
-            <a href="mailto:info@pro-detailing.ru">info@pro-detailing.ru</a>
+          <div class="c-row">
+            <span class="label">Адрес</span>
             <span>Екатеринбург, ул. Щорса, 128</span>
-            <span>Ежедневно 10:00–20:00</span>
+          </div>
+          <div class="c-row">
+            <span class="label">Часы</span>
+            <span>Ежедневно, 10:00–20:00<br>
+              <span class="status" data-status style="margin-top:6px"><span class="dot" aria-hidden="true"></span><span data-status-text>—</span></span>
+            </span>
           </div>
         </div>
+
+        <div class="c-cta reveal">
+          <a class="btn btn-primary" href="tel:+73432686161">Позвонить <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" target="_blank" rel="noopener"
+             href="https://yandex.ru/maps/?text=%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B1%D1%83%D1%80%D0%B3%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%A9%D0%BE%D1%80%D1%81%D0%B0%2C%20128">
+             Построить маршрут</a>
+        </div>
       </div>
-      <div class="site-footer__bottom">
-        <span>© <span id="year">2025</span> PRO Detailing</span>
-        <span>Сделано с вниманием к деталям</span>
+
+      <div class="map reveal">
+        <iframe
+          title="PRO-DETAILING на карте: Екатеринбург, ул. Щорса, 128"
+          loading="lazy"
+          src="https://yandex.ru/map-widget/v1/?text=%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B1%D1%83%D1%80%D0%B3%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%A9%D0%BE%D1%80%D1%81%D0%B0%2C%20128&z=16"></iframe>
       </div>
     </div>
-  </footer>
+  </section>
+</main>
 
-  <script src="assets/app.js" defer></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<!-- ===== Футер ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="PRO-DETAILING, на главную">
+      <b>PRO-<span class="chrome">DETAILING</span></b>
+      <small>Екатеринбург · ул. Щорса 128</small>
+    </a>
+    <nav aria-label="Навигация в подвале">
+      <a href="keramika.html">Полировка и керамика</a>
+      <a href="himchistka.html">Химчистка</a>
+      <a href="okleyka.html">Оклейка</a>
+      <a href="pdr-stekla.html">PDR и стёкла</a>
+      <a href="kontakty.html">Контакты</a>
+    </nav>
+    <p class="mono">© <span id="year">2026</span> PRO-DETAILING</p>
+  </div>
+</footer>
+
+<!-- ===== Липкая мобильная панель ===== -->
+<div class="mbar" role="region" aria-label="Быстрая связь">
+  <span class="status" data-status><span class="dot" aria-hidden="true"></span><span data-status-text>10:00–20:00</span></span>
+  <a class="btn btn-primary" href="tel:+73432686161">Позвонить</a>
+  <a class="btn btn-ghost" target="_blank" rel="noopener"
+     href="https://yandex.ru/maps/?text=%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B1%D1%83%D1%80%D0%B3%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%A9%D0%BE%D1%80%D1%81%D0%B0%2C%20128">Маршрут</a>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---- Статус Открыто/Закрыто по времени Екатеринбурга ---- */
+  var OPEN = 10 * 60, CLOSE = 20 * 60;
+  function ekbMinutes() {
+    var parts = new Intl.DateTimeFormat('ru-RU', {
+      timeZone: 'Asia/Yekaterinburg', hour: '2-digit', minute: '2-digit', hour12: false
+    }).formatToParts(new Date());
+    var h = 0, m = 0;
+    parts.forEach(function (p) {
+      if (p.type === 'hour') h = parseInt(p.value, 10) % 24;
+      if (p.type === 'minute') m = parseInt(p.value, 10);
+    });
+    return h * 60 + m;
+  }
+  function updateStatus() {
+    var now = ekbMinutes();
+    var open = now >= OPEN && now < CLOSE;
+    var text;
+    if (open) {
+      text = (CLOSE - now <= 60) ? 'Открыто · закрываемся в 20:00' : 'Открыто до 20:00';
+    } else {
+      text = now < OPEN ? 'Закрыто · откроемся сегодня в 10:00' : 'Закрыто · откроемся завтра в 10:00';
+    }
+    document.querySelectorAll('[data-status]').forEach(function (el) {
+      el.classList.toggle('is-open', open);
+      var t = el.querySelector('[data-status-text]');
+      if (t) t.textContent = text;
+    });
+  }
+  updateStatus();
+  setInterval(updateStatus, 60000);
+
+  /* ---- Шапка при скролле ---- */
+  var header = document.getElementById('header');
+  function onScroll() { header.classList.toggle('is-scrolled', window.scrollY > 8); }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ---- Мобильное меню ---- */
+  var burger = document.getElementById('burger');
+  var mnav = document.getElementById('mnav');
+  function setMenu(open) {
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+    mnav.classList.toggle('is-open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  burger.addEventListener('click', function () {
+    setMenu(burger.getAttribute('aria-expanded') !== 'true');
+  });
+  mnav.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && mnav.classList.contains('is-open')) { setMenu(false); burger.focus(); }
+  });
+
+  /* ---- Фолбэк битых фото: без иконки «сломанной картинки» ---- */
+  document.querySelectorAll('[data-img] img').forEach(function (img) {
+    var box = img.closest('[data-img]');
+    function broken() { box.classList.add('is-broken'); }
+    if (img.complete && img.naturalWidth === 0) broken();
+    img.addEventListener('error', broken);
+  });
+
+  /* ---- Волна из тонких линий ---- */
+  var wave = document.getElementById('wave');
+  var NS = 'http://www.w3.org/2000/svg';
+  for (var i = 0; i < 14; i++) {
+    var y = 130 + i * 5;
+    var a = 26 + i * 2.2;
+    var d = 'M0 ' + y +
+      ' C 240 ' + (y - a) + ', 480 ' + (y + a) + ', 720 ' + y +
+      ' S 1200 ' + (y - a) + ', 1440 ' + (y + a * 0.4);
+    var p = document.createElementNS(NS, 'path');
+    p.setAttribute('d', d);
+    p.setAttribute('opacity', (0.06 + (i / 14) * 0.28).toFixed(2));
+    wave.appendChild(p);
+  }
+
+  /* ---- Появление блоков ---- */
+  var targets = document.querySelectorAll('.reveal, .lineband, .hero-photo');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    targets.forEach(function (el) { io.observe(el); });
+  } else {
+    targets.forEach(function (el) { el.classList.add('is-in'); });
+  }
+
+  /* ---- Слайдер До/После: input range даёт клавиатуру и скринридеры ---- */
+  var ba = document.getElementById('ba');
+  if (ba) {
+    var range = ba.querySelector('input[type="range"]');
+    function setPos(v) {
+      ba.style.setProperty('--pos', v + '%');
+      range.setAttribute('aria-valuetext', 'После: ' + (100 - v) + '% кадра');
+    }
+    range.addEventListener('input', function () { setPos(range.value); });
+    setPos(range.value);
+  }
+
+  /* ---- Год ---- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
 </body>
 </html>
