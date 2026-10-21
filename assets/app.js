@@ -135,3 +135,23 @@
     if (href === current || (current === '' && href === 'index.html')) a.classList.add('is-active');
   });
 })();
+
+/* ---------- Слайдер «До / После» ---------- */
+(function () {
+  const slider = document.getElementById('baSlider');
+  if (!slider) return;
+  const after = slider.querySelector('.ba-after');
+  const handle = slider.querySelector('.ba-handle');
+  let dragging = false;
+  const setPos = (clientX) => {
+    const r = slider.getBoundingClientRect();
+    let p = ((clientX - r.left) / r.width) * 100;
+    p = Math.max(0, Math.min(100, p));
+    after.style.clipPath = 'inset(0 0 0 ' + p + '%)';
+    handle.style.left = p + '%';
+  };
+  slider.addEventListener('pointerdown', (e) => { dragging = true; slider.setPointerCapture(e.pointerId); setPos(e.clientX); });
+  slider.addEventListener('pointermove', (e) => { if (dragging) setPos(e.clientX); });
+  slider.addEventListener('pointerup', () => { dragging = false; });
+  after.style.clipPath = 'inset(0 0 0 50%)';
+})();

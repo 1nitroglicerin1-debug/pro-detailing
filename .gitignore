@@ -6,6 +6,8 @@ __pycache__/
 # Temp / artifacts
 map.txt
 map_logo.py
+_qa/
+.project_memory.json
 
 # OS
 .DS_Store
