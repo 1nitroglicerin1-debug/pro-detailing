@@ -113,18 +113,18 @@
     </div>
   </section>
 
-  <!-- ===== Тарифы ===== -->
+  <!-- ===== Услуга 1: PDR ===== -->
   <section class="section" id="prices" aria-labelledby="prices-title">
     <div class="wrap">
       <div class="section-head">
         <div>
-          <p class="label reveal"><span class="tick"></span>Услуги</p>
-          <h2 id="prices-title" class="reveal" style="margin-top:20px">Четыре типовые работы</h2>
+          <p class="label reveal"><span class="tick"></span>Услуга 01</p>
+          <h2 id="prices-title" class="reveal" style="margin-top:20px">Беспокрасочная рихтовка (PDR)</h2>
         </div>
         <p class="reveal">Цену называем по фото или при осмотре. Если вмятину PDR не возьмёт — скажем прямо и не возьмём денег.</p>
       </div>
 
-      <div class="bento">
+      <div class="bento" style="grid-template-columns:1.3fr 1fr">
         <article class="card card-main reveal">
           <div class="media" data-img>
             <img loading="lazy"
@@ -164,79 +164,11 @@
             </ul>
           </div>
         </article>
-
-        <article class="card reveal">
-          <div class="media" data-img>
-            <img loading="lazy"
-              src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=80"
-              alt="Ремонт скола лобового стекла" width="1000" height="800">
-          </div>
-          <div class="card-body">
-            <p class="num mono">03 — Скол</p>
-            <h3>Скол и трещина</h3>
-            <p class="num">от 1 500 ₽</p>
-            <p class="mono">Лобовое стекло · 40–60 минут</p>
-            <ul class="bullets">
-              <li>Остановка трещины — не разползётся дальше</li>
-              <li>Заливка скола полимером, полировка до прозрачности</li>
-              <li>Скол до 3 см, не на краю стекла и не в зоне обзора водителя</li>
-              <li>Если замена неизбежна — скажем честно и поможем с подбором</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <div class="media" data-img>
-            <img loading="lazy"
-              src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1000&q=80"
-              alt="Полировка лобового стекла автомобиля" width="1000" height="800">
-          </div>
-          <div class="card-body">
-            <p class="num mono">04 — Полировка</p>
-            <h3>Полировка стекла</h3>
-            <p class="num">от 2 500 ₽</p>
-            <p class="mono">Лобовое · боковые · 1–2 часа</p>
-            <ul class="bullets">
-              <li>Убираем затёртости от дворников и водный камень</li>
-              <li>Снимаем следы скотча и наклеек</li>
-              <li>Финишный антидождь — опция</li>
-              <li>Без «жирного» блеска и искажений обзора</li>
-            </ul>
-          </div>
-        </article>
       </div>
     </div>
   </section>
 
-  <!-- ===== До / После ===== -->
-  <section class="section" aria-labelledby="ba-title">
-    <div class="wrap ba-wrap">
-      <div>
-        <p class="label reveal"><span class="tick"></span>Кейс</p>
-        <h2 id="ba-title" class="reveal" style="margin-top:20px;font-size:clamp(32px,4vw,52px)">Вмятина на крыле: до и после</h2>
-        <p class="reveal">Слева — вмятина от парковки соседа. Справа — после PDR: металл выправлен, заводская краска не тронута. Съёмка при одном отражённом свете, без ретуши.</p>
-      </div>
-
-      <div class="ba reveal" id="ba" data-img>
-        <img class="before" loading="lazy"
-          src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1800&q=80"
-          alt="Вмятина на крыле автомобиля до PDR" width="1800" height="1125">
-        <img class="after" loading="lazy"
-          src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1800&q=80&sat=-30"
-          alt="Крыло после PDR: ровная поверхность без покраски" width="1800" height="1125">
-        <span class="ba-tag l mono">До</span>
-        <span class="ba-tag r mono">После</span>
-        <span class="ba-line" aria-hidden="true"></span>
-        <input type="range" min="0" max="100" value="50" step="1" aria-label="Сравнение до и после PDR">
-        <span class="ba-knob" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg>
-        </span>
-      </div>
-      <p class="mono reveal" style="margin-top:16px">Mazda CX-5 · переднее крыло · 1,5 часа · без покраски</p>
-    </div>
-  </section>
-
-  <!-- ===== Протокол ===== -->
+  <!-- ===== Протокол PDR ===== -->
   <section class="section protocol" aria-labelledby="protocol-title">
     <div class="wrap protocol-grid">
       <div>
@@ -274,6 +206,62 @@
       </dl>
     </div>
   </section>
+
+  <!-- ===== Разделитель услуг ===== -->
+  <section class="section" aria-labelledby="glass-title" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="label reveal"><span class="tick"></span>Услуга 02</p>
+          <h2 id="glass-title" class="reveal" style="margin-top:20px">Ремонт и полировка стёкол</h2>
+        </div>
+        <p class="reveal">Вторая мастерская той же бригады: останавливаем скол до того, как он станет трещиной во всё стекло.</p>
+      </div>
+
+      <div class="bento" style="grid-template-columns:1fr 1.3fr">
+        <article class="card reveal">
+          <div class="media" data-img>
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=80"
+              alt="Ремонт скола лобового стекла" width="1000" height="800">
+          </div>
+          <div class="card-body">
+            <p class="num mono">03 — Скол</p>
+            <h3>Скол и трещина</h3>
+            <p class="num">от 1 500 ₽</p>
+            <p class="mono">Лобовое стекло · 40–60 минут</p>
+            <ul class="bullets">
+              <li>Остановка трещины — не разползётся дальше</li>
+              <li>Заливка скола полимером, полировка до прозрачности</li>
+              <li>Скол до 3 см, не на краю стекла и не в зоне обзора водителя</li>
+              <li>Если замена неизбежна — скажем честно и поможем с подбором</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card card-main reveal">
+          <div class="media" data-img>
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1600&q=80"
+              alt="Полировка лобового стекла автомобиля" width="1600" height="1900">
+          </div>
+          <div class="card-body">
+            <p class="num mono">04 — Полировка</p>
+            <h3>Полировка стекла</h3>
+            <p class="num">от 2 500 ₽</p>
+            <p class="mono">Лобовое · боковые · 1–2 часа</p>
+            <ul class="bullets">
+              <li>Убираем затёртости от дворников и водный камень</li>
+              <li>Снимаем следы скотча и наклеек</li>
+              <li>Финишный антидождь — опция</li>
+              <li>Без «жирного» блеска и искажений обзора</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
 
   <!-- ===== Честность ===== -->
   <section class="section" aria-labelledby="honest-title">

@@ -190,70 +190,65 @@
     </div>
   </section>
 
-  <!-- ===== До / После ===== -->
-  <section class="section" aria-labelledby="ba-title">
-    <div class="wrap ba-wrap">
-      <div>
-        <p class="label reveal"><span class="tick"></span>Кейс</p>
-        <h2 id="ba-title" class="reveal" style="margin-top:20px;font-size:clamp(32px,4vw,52px)">Водительское сиденье: до и после</h2>
-        <p class="reveal">Слева — затёртая ткань с въевшимися пятнами. Справа — после экстракторной мойки и озонации: без разводов и запаха сырости. Съёмка в одном боксе, без ретуши.</p>
-      </div>
-
-      <div class="ba reveal" id="ba" data-img>
-        <img class="before" loading="lazy"
-          src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1800&q=80"
-          alt="Водительское сиденье до химчистки: пятна и затёртости" width="1800" height="1125">
-        <img class="after" loading="lazy"
-          src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1800&q=80"
-          alt="Сиденье после химчистки: чистый ровный текстиль" width="1800" height="1125">
-        <span class="ba-tag l mono">До</span>
-        <span class="ba-tag r mono">После</span>
-        <span class="ba-line" aria-hidden="true"></span>
-        <input type="range" min="0" max="100" value="50" step="1" aria-label="Сравнение до и после химчистки">
-        <span class="ba-knob" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg>
-        </span>
-      </div>
-      <p class="mono reveal" style="margin-top:16px">Skoda Octavia · тканевый салон · тариф «Комплекс» · 1 день</p>
-    </div>
-  </section>
-
-  <!-- ===== Протокол ===== -->
+  <!-- ===== Протокол + кейс ===== -->
   <section class="section protocol" aria-labelledby="protocol-title">
     <div class="wrap protocol-grid">
       <div>
         <p class="label reveal"><span class="tick"></span>Протокол химчистки</p>
         <h2 id="protocol-title" class="reveal" style="margin-top:20px">Порядок, который не оставляет запаха.</h2>
         <p class="lead reveal">Запах сырости после «мойки салона» — это влага, оставшаяся в поролоне. Наш протокол закрывает и это.</p>
+
+        <dl class="sheet reveal" style="margin-top:32px">
+          <div class="sheet-row">
+            <span class="step mono">01</span>
+            <dt>Разбор и сухая чистка</dt>
+            <dd>Снимаем сиденья, пылесосим с щелевыми насадками, вынимаем коврики и запаску.</dd>
+          </div>
+          <div class="sheet-row">
+            <span class="step mono">02</span>
+            <dt>Tornador и пятна</dt>
+            <dd>Круговая чистка пластика и вентиляции, локальный вывод пятен до экстрактора.</dd>
+          </div>
+          <div class="sheet-row">
+            <span class="step mono">03</span>
+            <dt>Экстракторная мойка</dt>
+            <dd>Промываем текстиль и ковролин с откачкой воды — не «сверху влажно», а до сухого волокна.</dd>
+          </div>
+          <div class="sheet-row">
+            <span class="step mono">04</span>
+            <dt>Кожа и консервация</dt>
+            <dd>Мягкая мойка кожи pH-нейтральным составом, затем консервант от трещин.</dd>
+          </div>
+          <div class="sheet-row">
+            <span class="step mono">05</span>
+            <dt>Озонация и сушка</dt>
+            <dd>Тепловые пушки и озонатор: салон сухой за 3 часа, без запаха химии и сырости.</dd>
+          </div>
+        </dl>
       </div>
 
-      <dl class="sheet reveal">
-        <div class="sheet-row">
-          <span class="step mono">01</span>
-          <dt>Разбор и сухая чистка</dt>
-          <dd>Снимаем сиденья, пылесосим с щелевыми насадками, вынимаем коврики и запаску.</dd>
+      <div style="position:sticky;top:calc(var(--header-h) + 24px)">
+        <p class="label reveal"><span class="tick"></span>Кейс</p>
+        <h3 class="reveal" style="margin-top:16px;font-size:clamp(24px,3vw,34px)">Водительское сиденье: до и после</h3>
+        <p class="reveal" style="margin-top:12px">Слева — затёртая ткань с въевшимися пятнами. Справа — после экстракторной мойки и озонации, без разводов и запаха сырости.</p>
+
+        <div class="ba reveal" id="ba" data-img style="margin-top:20px">
+          <img class="before" loading="lazy"
+            src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1800&q=80"
+            alt="Водительское сиденье до химчистки: пятна и затёртости" width="1800" height="1125">
+          <img class="after" loading="lazy"
+            src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1800&q=80"
+            alt="Сиденье после химчистки: чистый ровный текстиль" width="1800" height="1125">
+          <span class="ba-tag l mono">До</span>
+          <span class="ba-tag r mono">После</span>
+          <span class="ba-line" aria-hidden="true"></span>
+          <input type="range" min="0" max="100" value="50" step="1" aria-label="Сравнение до и после химчистки">
+          <span class="ba-knob" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg>
+          </span>
         </div>
-        <div class="sheet-row">
-          <span class="step mono">02</span>
-          <dt>Tornador и пятна</dt>
-          <dd>Круговая чистка пластика и вентиляции, локальный вывод пятен до экстрактора.</dd>
-        </div>
-        <div class="sheet-row">
-          <span class="step mono">03</span>
-          <dt>Экстракторная мойка</dt>
-          <dd>Промываем текстиль и ковролин с откачкой воды — не «сверху влажно», а до сухого волокна.</dd>
-        </div>
-        <div class="sheet-row">
-          <span class="step mono">04</span>
-          <dt>Кожа и консервация</dt>
-          <dd>Мягкая мойка кожи pH-нейтральным составом, затем консервант от трещин.</dd>
-        </div>
-        <div class="sheet-row">
-          <span class="step mono">05</span>
-          <dt>Озонация и сушка</dt>
-          <dd>Тепловые пушки и озонатор: салон сухой за 3 часа, без запаха химии и сырости.</dd>
-        </div>
-      </dl>
+        <p class="mono reveal" style="margin-top:16px">Skoda Octavia · тканевый салон · тариф «Комплекс» · 1 день</p>
+      </div>
     </div>
   </section>
 
