@@ -127,15 +127,6 @@ p{margin:0}
 .lineband{position:relative;margin-top:clamp(40px,6vw,80px);height:clamp(140px,18vw,240px);border-top:1px solid var(--line)}
 .lineband svg{position:absolute;inset:0;width:100%;height:100%}
 .lineband .wave path{fill:none;stroke:var(--cyan);stroke-width:1;vector-effect:non-scaling-stroke}
-.car path,.car circle,.car line{fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
-.car .body{stroke:#C9CFD6;stroke-width:1.2}
-.car .accent{stroke:var(--cyan);stroke-width:1.2}
-.car .speed{stroke:rgba(201,207,214,.35);stroke-width:1}
-.draw{stroke-dasharray:1;stroke-dashoffset:1}
-.lineband.is-in .draw{animation:draw 2.2s var(--ease) forwards}
-.lineband.is-in .draw.d2{animation-delay:.4s}
-.lineband.is-in .draw.d3{animation-delay:.8s}
-@keyframes draw{to{stroke-dashoffset:0}}
 
 /* ===== Секции ===== */
 .section{padding:clamp(80px,11vw,160px) 0}
@@ -171,26 +162,13 @@ p{margin:0}
 /* ===== До / После ===== */
 .ba-wrap{display:grid;grid-template-columns:1fr 2.2fr;gap:clamp(32px,5vw,72px);align-items:center}
 .ba-wrap p{color:var(--muted);margin-top:20px;max-width:380px}
-.ba{
-  --pos:50%;
-  position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--bg-2);
-  user-select:none;-webkit-user-select:none;touch-action:pan-y;
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line)}
+.ba-shot{position:relative;margin:0;aspect-ratio:16/11;overflow:hidden;background:var(--bg-2)}
+.ba-shot img{display:block;width:100%;height:100%;object-fit:cover}
+.ba-shot figcaption{
+  position:absolute;left:16px;bottom:16px;padding:6px 10px;
+  background:rgba(13,15,18,.72);color:#D7DCE2;
 }
-.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
-.ba .before{filter:saturate(.55) contrast(.82) brightness(.9) blur(.4px)}
-.ba .after{clip-path:inset(0 0 0 var(--pos))}
-.ba-line{position:absolute;top:0;bottom:0;left:var(--pos);width:1px;background:#fff;transform:translateX(-.5px);pointer-events:none}
-.ba-knob{
-  position:absolute;top:50%;left:var(--pos);width:48px;height:48px;border-radius:50%;
-  transform:translate(-50%,-50%);background:var(--bg);border:1px solid #fff;
-  display:grid;place-items:center;pointer-events:none;transition:border-color .2s
-}
-.ba-knob svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.5}
-.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
-.ba input:focus-visible ~ .ba-knob{border-color:var(--cyan);outline:2px solid var(--cyan);outline-offset:3px}
-.ba-tag{position:absolute;top:16px;padding:6px 10px;background:rgba(13,15,18,.72);color:#D7DCE2;pointer-events:none}
-.ba-tag.l{left:16px}
-.ba-tag.r{right:16px}
 
 /* ===== Хлебные крошки ===== */
 .crumbs{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--muted);flex-wrap:wrap}

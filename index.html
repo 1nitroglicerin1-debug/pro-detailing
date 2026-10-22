@@ -97,7 +97,7 @@
       <div class="hero-grid">
         <div>
           <p class="label reveal"><span class="tick"></span>Детейлинг-студия · ул. Щорса 128</p>
-          <h1 id="hero-title" class="reveal" style="margin-top:24px">Мастер,<br>а не <span class="chrome">конвейер.</span></h1>
+          <h1 id="hero-title" class="reveal" style="margin-top:24px">Мастер,<br>а не конвейер.</h1>
           <p class="hero-lead reveal">
             Каждый автомобиль от приёмки до выдачи ведёт один мастер.
             <em>Смета — до начала работ.</em> Мы не «находим» дополнительные услуги, когда машина уже разобрана.
@@ -128,19 +128,6 @@
     <!-- Линейный силуэт и волна: отсылка к обложке ВК, без свечения -->
     <div class="lineband" id="lineband" aria-hidden="true">
       <svg class="wave" viewBox="0 0 1440 240" preserveAspectRatio="none" id="wave"></svg>
-      <svg class="car" viewBox="0 0 1440 240" preserveAspectRatio="xMidYMid meet">
-        <g transform="translate(560 30)">
-          <line class="speed draw" pathLength="1" x1="-420" y1="92"  x2="-30" y2="92"/>
-          <line class="speed draw d2" pathLength="1" x1="-300" y1="120" x2="0" y2="120"/>
-          <line class="speed draw d3" pathLength="1" x1="-200" y1="148" x2="20" y2="148"/>
-          <path class="body draw" pathLength="1"
-            d="M40 168 C40 150 62 140 112 133 L232 118 C292 82 362 62 452 60 C532 58 592 74 642 100 L722 112 C752 116 768 130 770 150 L772 168 L660 168 M580 168 L230 168 M150 168 L40 168"/>
-          <path class="body draw d2" pathLength="1" d="M300 113 C352 84 410 74 470 74 C520 74 556 86 582 102 Z"/>
-          <circle class="accent draw d2" pathLength="1" cx="190" cy="168" r="34"/>
-          <circle class="accent draw d2" pathLength="1" cx="620" cy="168" r="34"/>
-          <path class="accent draw d3" pathLength="1" d="M700 120 L748 126"/>
-        </g>
-      </svg>
     </div>
   </section>
 
@@ -244,20 +231,19 @@
       </div>
 
       <!-- Замените на реальную пару «до/после» из вашей работы: один ракурс, один свет -->
-      <div class="ba reveal" id="ba" data-img>
-        <img class="before" loading="lazy"
-          src="https://images.unsplash.com/photo-1518987048-93e29699e79a?auto=format&fit=crop&w=1800&q=80"
-          alt="Кузов до полировки: матовый, с потерей глубины цвета" width="1800" height="1125">
-        <img class="after" loading="lazy"
-          src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1800&q=80"
-          alt="Кузов после полировки: глубокий глянец" width="1800" height="1125">
-        <span class="ba-tag l mono">До</span>
-        <span class="ba-tag r mono">После</span>
-        <span class="ba-line" aria-hidden="true"></span>
-        <input type="range" min="0" max="100" value="50" step="1" aria-label="Сравнение до и после полировки">
-        <span class="ba-knob" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg>
-        </span>
+      <div class="ba reveal" id="ba">
+        <figure class="ba-shot" data-img>
+          <img loading="lazy"
+            src="https://images.unsplash.com/photo-1518987048-93e29699e79a?auto=format&fit=crop&w=1800&q=80"
+            alt="Кузов до полировки: матовый, с потерей глубины цвета" width="1800" height="1125">
+          <figcaption class="mono">До</figcaption>
+        </figure>
+        <figure class="ba-shot" data-img>
+          <img loading="lazy"
+            src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1800&q=80"
+            alt="Кузов после полировки: глубокий глянец" width="1800" height="1125">
+          <figcaption class="mono">После</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -267,7 +253,7 @@
     <div class="wrap protocol-grid">
       <div>
         <p class="label reveal"><span class="tick"></span>Как мы работаем</p>
-        <h2 id="protocol-title" class="reveal" style="margin-top:20px">Каждый автомобиль отдаём мастеру, а не конвейеру.</h2>
+        <h2 id="protocol-title" class="reveal" style="margin-top:20px">Как проходит каждый заказ.</h2>
         <p class="lead reveal">Один человек принимает машину, делает работу и отдаёт её вам. Поэтому он помнит, что было на кузове до начала, и отвечает за результат лично.</p>
       </div>
 
@@ -306,7 +292,7 @@
     <div class="wrap contacts-grid">
       <div>
         <p class="label reveal"><span class="tick"></span>Контакты</p>
-        <h2 id="contacts-title" class="reveal" style="margin-top:20px"><span class="chrome">Щорса,<br>128</span></h2>
+        <h2 id="contacts-title" class="reveal" style="margin-top:20px">Щорса,<br>128</h2>
 
         <div class="c-list reveal">
           <div class="c-row">
@@ -461,18 +447,6 @@
     targets.forEach(function (el) { io.observe(el); });
   } else {
     targets.forEach(function (el) { el.classList.add('is-in'); });
-  }
-
-  /* ---- Слайдер До/После: input range даёт клавиатуру и скринридеры ---- */
-  var ba = document.getElementById('ba');
-  if (ba) {
-    var range = ba.querySelector('input[type="range"]');
-    function setPos(v) {
-      ba.style.setProperty('--pos', v + '%');
-      range.setAttribute('aria-valuetext', 'После: ' + (100 - v) + '% кадра');
-    }
-    range.addEventListener('input', function () { setPos(range.value); });
-    setPos(range.value);
   }
 
   /* ---- Год ---- */
