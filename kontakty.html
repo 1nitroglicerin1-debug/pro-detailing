@@ -129,48 +129,58 @@
     </div>
   </section>
 
-  <!-- ===== Карта ===== -->
-  <section class="section" aria-labelledby="map-title">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <p class="label reveal"><span class="tick"></span>Как нас найти</p>
-          <h2 id="map-title" class="reveal" style="font-size:clamp(40px,6vw,84px);margin-top:12px">Две студии <span class="chrome">в Екатеринбурге</span></h2>
-          <p class="reveal">Две студии: на Щорса — заезд со двора, 5 минут от метро «Чкаловская»; на Луганской — район Ботаника.</p>
-        </div>
+<!-- ===== Филиалы и локации ===== -->
+<section class="section locate" aria-labelledby="map-title">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="label reveal"><span class="tick"></span>Локации</p>
+        <h2 id="map-title" class="reveal" style="margin-top:20px">Две студии в&nbsp;Екатеринбурге</h2>
       </div>
-
-      <div class="branch-grid" style="display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
-
-        <div class="map-block reveal" data-map style="min-height:380px">
-          <iframe
-            src="https://yandex.ru/map-widget/v1/?ll=60.5912%2C56.7766&z=16&pt=60.5912%2C56.7766%2Cpm2rdm&lang=ru_RU"
-            title="Карта: Екатеринбург, ул. Щорса, 128" loading="lazy" allowfullscreen></iframe>
-          <button class="map-shield" type="button" aria-label="Включить управление картой"></button>
-          <div class="map-panel">
-            <h3>Щорса, 128</h3>
-            <p>Автовокзал · заезд со двора · 5 минут от метро «Чкаловская»</p>
-            <a class="btn btn-primary" target="_blank" rel="noopener"
-               href="https://yandex.ru/maps/?rtext=~56.7766%2C60.5912&rtt=auto">Маршрут до Щорса 128 <span class="arr" aria-hidden="true">→</span></a>
-          </div>
-        </div>
-
-        <div class="map-block reveal" data-map style="min-height:380px">
-          <iframe
-            src="https://yandex.ru/map-widget/v1/?ll=60.6197%2C56.7849&z=16&pt=60.6197%2C56.7849%2Cpm2rdm&lang=ru_RU"
-            title="Карта: Екатеринбург, ул. Луганская, 59, корп. 1А" loading="lazy" allowfullscreen></iframe>
-          <button class="map-shield" type="button" aria-label="Включить управление картой"></button>
-          <div class="map-panel">
-            <h3>Луганская, 59, корп. 1А</h3>
-            <p>Ботаника · рейтинг 4,9 · «Хорошее место 2026»</p>
-            <a class="btn btn-primary" target="_blank" rel="noopener"
-               href="https://yandex.ru/maps/?rtext=~56.7849%2C60.6197&rtt=auto">Маршрут до Луганской 59к1А <span class="arr" aria-hidden="true">→</span></a>
-          </div>
-        </div>
-
-      </div>
+      <p class="reveal">Одинаковые стандарты, профессиональный свет и&nbsp;смета до&nbsp;начала работ в&nbsp;обоих боксах.</p>
     </div>
-  </section>
+
+    <div class="branches reveal">
+
+      <!-- Филиал 1: Щорса -->
+      <article class="card">
+        <div class="branch-head">
+          <span class="mono">Филиал 01</span>
+          <span class="branch-tag">Автовокзал</span>
+        </div>
+        <h3>ул.&nbsp;Щорса, 128</h3>
+        <p class="branch-desc">Въезд со&nbsp;двора, закрытая охраняемая территория. 5&nbsp;минут пешком от&nbsp;станции метро «Чкаловская».</p>
+        <div class="branch-info">
+          <p>🕒 10:00–20:00 ежедневно</p>
+          <p>📞 <a href="tel:+73432686161">+7 (343) 268-61-61</a></p>
+        </div>
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://yandex.ru/maps/?text=%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B1%D1%83%D1%80%D0%B3%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%A9%D0%BE%D1%80%D1%81%D0%B0%2C%20128">
+          Построить маршрут <span class="arr" aria-hidden="true">→</span>
+        </a>
+      </article>
+
+      <!-- Филиал 2: Луганская -->
+      <article class="card">
+        <div class="branch-head">
+          <span class="mono">Филиал 02</span>
+          <span class="branch-tag is-rated">★ 4.9 · Хорошее место</span>
+        </div>
+        <h3>ул.&nbsp;Луганская, 59, корп.&nbsp;1А</h3>
+        <p class="branch-desc">Район Ботаника, удобный заезд с&nbsp;Объездной дороги и&nbsp;Кольцовского тракта. Просторные боксы.</p>
+        <div class="branch-info">
+          <p>🕒 10:00–20:00 ежедневно</p>
+          <p>📞 <a href="tel:+73432686161">+7 (343) 268-61-61</a></p>
+        </div>
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://yandex.ru/maps/?text=%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B1%D1%83%D1%80%D0%B3%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%9B%D1%83%D0%B3%D0%B0%D0%BD%D1%81%D0%BA%D0%B0%D1%8F%2C%2059%D0%BA1%D0%90">
+          Построить маршрут <span class="arr" aria-hidden="true">→</span>
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
   <!-- ===== Запись ===== -->
   <section class="section contacts" id="form" aria-labelledby="form-title">
     <div class="wrap contacts-grid">
@@ -342,13 +352,6 @@
   } else {
     targets.forEach(function (el) { el.classList.add('is-in'); });
   }
-
-  /* ---- Карта: активируется кликом, чтобы колесо не зумило вместо прокрутки ---- */
-  document.querySelectorAll('[data-map]').forEach(function (m) {
-    var shield = m.querySelector('.map-shield');
-    if (shield) shield.addEventListener('click', function () { m.classList.add('is-active'); });
-  });
-
     /* ---- Форма заявки ---- */
   var form = document.getElementById('lead');
   if (form) {

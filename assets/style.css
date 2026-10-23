@@ -234,7 +234,9 @@ p{margin:0}
 @media (max-width:760px){.steps{grid-template-columns:1fr;gap:22px}}
 
 /* ===== Контакты ===== */
+.locate{padding-bottom:0}
 .contacts-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(32px,5vw,72px);align-items:stretch}
+.contacts{padding-top:clamp(40px,5vw,64px)}
 .contacts h2{font-size:clamp(56px,9vw,132px);line-height:.92;letter-spacing:-.045em}
 .c-list{margin-top:40px;display:grid;gap:0;border-top:1px solid var(--line)}
 .c-row{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
@@ -414,6 +416,20 @@ p{margin:0}
 .map-panel .btn{margin-top:22px}
 
 /* ---- Горизонтальная карточка на всю ширину bento ---- */
+/* Филиалы на kontakty */
+.branches{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:32px}
+.branches .card{min-height:0;justify-content:flex-start;background:var(--bg-card,#14171C);border:1px solid var(--border,rgba(255,255,255,.1));border-radius:16px;padding:28px}
+.branches .branch-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:16px}
+.branches .branch-head .mono{color:var(--accent,#E5A93C);font-weight:500}
+.branches .branch-tag{font-size:13px;color:var(--muted,#8E95A2);background:rgba(255,255,255,.05);padding:4px 10px;border-radius:20px;white-space:nowrap}
+.branches .branch-tag.is-rated{color:#E5A93C;background:rgba(229,169,60,.1);font-weight:500}
+.branches h3{margin:0 0 10px;font-size:22px}
+.branches .branch-desc{color:var(--muted,#8E95A2);font-size:14px;line-height:1.5;margin:0 0 16px}
+.branches .branch-info{font-size:13px;color:var(--muted,#8E95A2);flex:1}
+.branches .branch-info p{margin:4px 0}
+.branches .btn{margin-top:20px;justify-content:center;text-align:center}
+.card-rows .section-head p{margin-bottom:.35em}
+
 .card-row{grid-column:1 / -1;display:grid;grid-template-columns:1.2fr 1fr;min-height:360px}
 .card-row .media{position:relative;inset:auto;z-index:0}
 .card-row .media::after{background:linear-gradient(90deg,rgba(18,21,26,0) 55%,var(--bg-2) 100%)}
