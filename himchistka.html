@@ -191,7 +191,7 @@
   </section>
 
   <!-- ===== Протокол + кейс ===== -->
-  <section class="section protocol" aria-labelledby="protocol-title">
+  <section class="section protocol protocol--case" aria-labelledby="protocol-title">
     <div class="wrap protocol-grid">
       <div>
         <p class="label reveal"><span class="tick"></span>Протокол химчистки</p>
@@ -227,33 +227,33 @@
         </dl>
       </div>
 
-      <article class="case-card reveal">
-        <div class="case-head">
-          <span class="case-badge">Кейс</span>
-          <h3>Водительское сиденье: до и после</h3>
-          <p class="case-desc">На первом кадре — засаленная ткань с въевшимися пятнами. На втором — то же сиденье после экстракторной промывки и сушки: чистый текстиль без разводов.</p>
+      <article class="case-card reveal" aria-labelledby="case-title">
+        <header class="case-head">
+          <p class="label">Кейс из бокса</p>
+          <h3 id="case-title">Водительское сиденье: до и после</h3>
+          <p class="case-desc">Засаленная ткань с въевшимися пятнами. После экстракторной промывки и сушки текстиль чистый, без разводов и запаха.</p>
+        </header>
+
+        <div class="case-slider" id="caseSlider" style="--pos:50%">
+          <img class="case-img case-img-after" loading="lazy"
+            src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80"
+            alt="Сиденье после химчистки: чистый ровный текстиль" width="1200" height="825">
+          <img class="case-img case-img-before" loading="lazy"
+            src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1200&q=80"
+            alt="Тканевое сиденье до химчистки: пятна и затёртости" width="1200" height="825">
+          <span class="case-tag case-tag-before" aria-hidden="true">До</span>
+          <span class="case-tag case-tag-after" aria-hidden="true">После</span>
+          <div class="case-divider" aria-hidden="true"><span class="case-handle"></span></div>
+          <input class="case-range" type="range" min="0" max="100" value="50" step="1"
+            aria-label="Сравнение: сдвиньте, чтобы увидеть сиденье до и после химчистки">
         </div>
 
-        <div class="case-slider" id="caseSlider">
-            <img class="case-img case-img-after" loading="lazy"
-              src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80"
-              alt="Сиденье после химчистки: чистый ровный текстиль" width="1200" height="825">
-            <img class="case-img case-img-before" loading="lazy"
-              src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1200&q=80"
-              alt="Тканевое сиденье до химчистки: пятна и затёртости" width="1200" height="825">
-            <div class="case-divider" aria-hidden="true"><span class="case-handle"></span></div>
-            <span class="case-tag case-tag-before">До</span>
-            <span class="case-tag case-tag-after">После</span>
-            <input class="case-range" type="range" min="0" max="100" value="50"
-              aria-label="Ползунок сравнения: до и после химчистки">
-          </div>
-
-          <div class="case-meta">
-            <span class="case-pill case-pill-strong">Skoda Octavia</span>
-            <span class="case-pill">тканевый салон</span>
-            <span class="case-pill">тариф «Комплекс»</span>
-            <span class="case-pill">1 день</span>
-          </div>
+        <dl class="case-meta">
+          <div><dt>Автомобиль</dt><dd>Skoda Octavia</dd></div>
+          <div><dt>Салон</dt><dd>Ткань</dd></div>
+          <div><dt>Тариф</dt><dd>Комплекс</dd></div>
+          <div><dt>Срок</dt><dd>1 день</dd></div>
+        </dl>
       </article>
     </div>
   </section>
@@ -453,29 +453,41 @@
     targets.forEach(function (el) { el.classList.add('is-in'); });
   }
 
-  /* ---- Слайдер До / После ---- */
+  /* ---- Слайдер До / После: pointer events + rAF, клавиатура через range ---- */
   (function () {
     var slider = document.getElementById('caseSlider');
     if (!slider) return;
-    var before = slider.querySelector('.case-img-before');
-    var divider = slider.querySelector('.case-divider');
     var range = slider.querySelector('.case-range');
+    var raf = 0, pending = 50, dragging = false;
+
+    function apply() { raf = 0; slider.style.setProperty('--pos', pending + '%'); range.value = Math.round(pending); }
     function setPos(p) {
-      p = Math.max(0, Math.min(100, p));
-      before.style.clipPath = 'inset(0 ' + (100 - p) + '% 0 0)';
-      divider.style.left = p + '%';
-      range.value = p;
+      pending = Math.max(0, Math.min(100, p));
+      if (!raf) raf = requestAnimationFrame(apply);
     }
-    range.addEventListener('input', function () { setPos(+range.value); });
-    function fromEvent(e) {
+    function fromX(clientX) {
       var r = slider.getBoundingClientRect();
-      var x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
-      setPos((x / r.width) * 100);
+      setPos(((clientX - r.left) / r.width) * 100);
     }
-    slider.addEventListener('mousemove', function (e) { if (e.buttons || e.pointerType) fromEvent(e); });
-    slider.addEventListener('pointerdown', function (e) { fromEvent(e); slider.setPointerCapture(e.pointerId); });
-    slider.addEventListener('pointermove', function (e) { if (e.buttons) fromEvent(e); });
-    slider.addEventListener('touchmove', function (e) { fromEvent(e); }, { passive: true });
+
+    // Клавиатура и скринридеры
+    range.addEventListener('input', function () { setPos(+range.value); });
+
+    // Мышь, перо, тач — единым API; touch-action:pan-y оставляет вертикальный скролл страницы
+    slider.addEventListener('pointerdown', function (e) {
+      dragging = true;
+      slider.classList.add('is-drag');
+      try { slider.setPointerCapture(e.pointerId); } catch (err) {}
+      fromX(e.clientX);
+    });
+    slider.addEventListener('pointermove', function (e) {
+      if (dragging || e.pointerType === 'mouse') fromX(e.clientX);
+    });
+    function stop() { dragging = false; slider.classList.remove('is-drag'); }
+    slider.addEventListener('pointerup', stop);
+    slider.addEventListener('pointercancel', stop);
+    slider.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') stop(); });
+
     setPos(50);
   })();
 
