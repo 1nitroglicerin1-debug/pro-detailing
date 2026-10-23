@@ -14,7 +14,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Manrope:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://images.unsplash.com">
 <link rel="stylesheet" href="assets/style.css">
 
@@ -191,7 +191,7 @@
   </section>
 
   <!-- ===== Протокол + кейс ===== -->
-  <section class="section protocol protocol--case" aria-labelledby="protocol-title">
+  <section class="section protocol protocol--std" aria-labelledby="protocol-title">
     <div class="wrap protocol-grid">
       <div>
         <p class="label reveal"><span class="tick"></span>Протокол химчистки</p>
@@ -227,33 +227,37 @@
         </dl>
       </div>
 
-      <article class="case-card reveal" aria-labelledby="case-title">
-        <header class="case-head">
-          <p class="label">Кейс из бокса</p>
-          <h3 id="case-title">Водительское сиденье: до и после</h3>
-          <p class="case-desc">Засаленная ткань с въевшимися пятнами. После экстракторной промывки и сушки текстиль чистый, без разводов и запаха.</p>
-        </header>
-
-        <div class="case-slider" id="caseSlider" style="--pos:50%">
-          <img class="case-img case-img-after" loading="lazy"
+      <article class="std-card reveal" aria-labelledby="std-title">
+        <figure class="std-photo">
+          <img loading="lazy"
             src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80"
-            alt="Сиденье после химчистки: чистый ровный текстиль" width="1200" height="825">
-          <img class="case-img case-img-before" loading="lazy"
-            src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1200&q=80"
-            alt="Тканевое сиденье до химчистки: пятна и затёртости" width="1200" height="825">
-          <span class="case-tag case-tag-before" aria-hidden="true">До</span>
-          <span class="case-tag case-tag-after" aria-hidden="true">После</span>
-          <div class="case-divider" aria-hidden="true"><span class="case-handle"></span></div>
-          <input class="case-range" type="range" min="0" max="100" value="50" step="1"
-            aria-label="Сравнение: сдвиньте, чтобы увидеть сиденье до и после химчистки">
+            alt="Чистый текстильный салон после химчистки" width="1200" height="800">
+          <figcaption class="std-photo-cap">
+            <span class="std-tag">Стандарт студии</span>
+            <h3 id="std-title">Салон сдаём сухим, без запаха и разводов</h3>
+          </figcaption>
+        </figure>
+
+        <dl class="std-stats">
+          <div><dt>Сушка</dt><dd>3 часа</dd></div>
+          <div><dt>Этапов</dt><dd>5</dd></div>
+          <div><dt>Стоимость</dt><dd>от 8 000 ₽</dd></div>
+        </dl>
+
+        <div class="std-block">
+          <p class="std-subtitle">Оборудование и химия</p>
+          <ul class="std-list">
+            <li><span class="std-name">Tornador</span><span class="std-note">пластик, швы, воздуховоды</span></li>
+            <li><span class="std-name">Экстрактор</span><span class="std-note">промывка и отбор влаги из поролона</span></li>
+            <li><span class="std-name">Koch Chemie</span><span class="std-note">pH-нейтральные составы для ткани и кожи</span></li>
+            <li><span class="std-name">Озонатор</span><span class="std-note">разрушает источник запаха</span></li>
+          </ul>
         </div>
 
-        <dl class="case-meta">
-          <div><dt>Автомобиль</dt><dd>Skoda Octavia</dd></div>
-          <div><dt>Салон</dt><dd>Ткань</dd></div>
-          <div><dt>Тариф</dt><dd>Комплекс</dd></div>
-          <div><dt>Срок</dt><dd>1 день</dd></div>
-        </dl>
+        <div class="std-foot">
+          <p>Смету согласуем до начала работ, по фото или на осмотре в боксе.</p>
+          <a class="btn btn-primary" href="#form">Рассчитать стоимость <span class="arr" aria-hidden="true">→</span></a>
+        </div>
       </article>
     </div>
   </section>
@@ -452,44 +456,6 @@
   } else {
     targets.forEach(function (el) { el.classList.add('is-in'); });
   }
-
-  /* ---- Слайдер До / После: pointer events + rAF, клавиатура через range ---- */
-  (function () {
-    var slider = document.getElementById('caseSlider');
-    if (!slider) return;
-    var range = slider.querySelector('.case-range');
-    var raf = 0, pending = 50, dragging = false;
-
-    function apply() { raf = 0; slider.style.setProperty('--pos', pending + '%'); range.value = Math.round(pending); }
-    function setPos(p) {
-      pending = Math.max(0, Math.min(100, p));
-      if (!raf) raf = requestAnimationFrame(apply);
-    }
-    function fromX(clientX) {
-      var r = slider.getBoundingClientRect();
-      setPos(((clientX - r.left) / r.width) * 100);
-    }
-
-    // Клавиатура и скринридеры
-    range.addEventListener('input', function () { setPos(+range.value); });
-
-    // Мышь, перо, тач — единым API; touch-action:pan-y оставляет вертикальный скролл страницы
-    slider.addEventListener('pointerdown', function (e) {
-      dragging = true;
-      slider.classList.add('is-drag');
-      try { slider.setPointerCapture(e.pointerId); } catch (err) {}
-      fromX(e.clientX);
-    });
-    slider.addEventListener('pointermove', function (e) {
-      if (dragging || e.pointerType === 'mouse') fromX(e.clientX);
-    });
-    function stop() { dragging = false; slider.classList.remove('is-drag'); }
-    slider.addEventListener('pointerup', stop);
-    slider.addEventListener('pointercancel', stop);
-    slider.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') stop(); });
-
-    setPos(50);
-  })();
 
   /* ---- Форма заявки ---- */
   var form = document.getElementById('lead');
