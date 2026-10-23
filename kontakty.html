@@ -405,10 +405,13 @@
       var name = form.elements.name.value.trim();
       var phone = form.elements.phone.value.trim();
       var car = form.elements.car.value.trim();
+      form.classList.add('was-validated');
       if (name.length < 2 || phone.replace(/\D/g, '').length < 10 || car.length < 2) {
+        statusEl.classList.add('is-error');
         statusEl.textContent = 'Заполните имя, телефон (10 цифр) и марку авто.';
         return;
       }
+      statusEl.classList.remove('is-error');
       statusEl.textContent = 'Отправляем…';
       var btn = form.querySelector('button[type="submit"]');
       btn.disabled = true;
