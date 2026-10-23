@@ -270,6 +270,9 @@ p{margin:0}
 }
 @media (max-width:760px){
   body{padding-bottom:calc(68px + env(safe-area-inset-bottom))}
+  .hero-facts{padding-right:52px;gap:8px 16px}
+  .hero-facts span{padding-left:0}
+  .hero-facts span::before{display:none}
   .bento{grid-template-columns:1fr}
   .card-main{grid-row:auto;min-height:520px}
   .card-wide{flex-direction:column}
@@ -437,6 +440,12 @@ p{margin:0}
   .case-head p{max-width:560px}
 }
 @media (max-width:760px){
+  /* Липкий заголовок кейса на телефоне наползает на фото и спецификации */
+  .case--split,
+  .case-head{
+    position:static !important;
+    top:auto !important;
+  }
   .tiers,.duo,.compare,.ba{grid-template-columns:1fr}
   .tiers .card{min-height:440px}
   .tiers .card:last-child{grid-column:auto}
@@ -515,3 +524,26 @@ p{margin:0}
 .std-stats dd,.std-name{white-space:nowrap}
 @media (max-width:1024px){ .std-photo{flex:none;aspect-ratio:16/10;min-height:0} }
 @media (max-width:560px){ .std-photo{aspect-ratio:4/3} }
+/* ===== Плавающие мессенджеры ===== */
+.floating-messengers{
+  position:fixed;
+  right:18px;
+  bottom:128px;
+  z-index:99;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.floating-messengers a{
+  width:48px;height:48px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;
+  box-shadow:0 4px 16px rgba(0,0,0,0.4);
+  transition:transform .18s var(--ease);
+}
+.floating-messengers a:hover,
+.floating-messengers a:active{transform:scale(1.08)}
+.floating-messengers svg{width:24px;height:24px;display:block}
+.fm-wa{background:#25D366}
+.fm-tg{background:#229ED9}

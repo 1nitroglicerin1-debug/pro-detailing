@@ -12,3 +12,7 @@ _qa/
 # OS
 .DS_Store
 Thumbs.db
+
+# Node
+node_modules/
+dummy_rm
