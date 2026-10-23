@@ -120,7 +120,7 @@ p{margin:0}
 .hero-photo{position:relative;aspect-ratio:4/5;max-height:640px;background:var(--bg-2);overflow:hidden}
 .hero-photo img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);transition:transform 1.6s var(--ease)}
 .hero-photo.is-in img{transform:scale(1)}
-.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(13,15,18,.9) 0%,rgba(13,15,18,.55) 20%,rgba(13,15,18,0) 45%)}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(13,15,18,.9) 0%,rgba(13,15,18,.55) 20%,rgba(13,15,18,0) 45%);pointer-events:none}
 .hero-photo figcaption{position:absolute;left:20px;bottom:18px;z-index:2;color:#C9CED4}
 
 /* Линейный силуэт + волна (из обложки ВК) */
@@ -343,8 +343,8 @@ p{margin:0}
 .tiers .card .num{margin-bottom:0}
 .tiers .card .num + h3{margin-top:20px}
 .tiers .card .price{margin-top:auto;padding-top:24px}
-/* Текст тарифов занимает всю карточку: оверлей плотный по всей высоте */
-.tiers .card .media::after{background:linear-gradient(to top,rgba(10,12,16,.96) 0%,rgba(10,12,16,.9) 55%,rgba(10,12,16,.78) 100%)}
+  .tiers .card .media{opacity:.55}
+  .tiers .card .media::after{background:linear-gradient(to top,rgba(10,12,16,.97) 0%,rgba(10,12,16,.93) 60%,rgba(10,12,16,.82) 100%)}
 .tiers .card.is-featured{outline:1px solid rgba(63,192,240,.55);outline-offset:-1px}
 .tiers .card.is-featured::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--cyan);z-index:2}
 .card-meta{margin:8px 0 0;font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
@@ -438,37 +438,44 @@ p{margin:0}
   .case-stats div:nth-child(n+3){border-top:1px solid var(--line)}
 }
 
-/* ===== Шрифты Unbounded + Manrope (типографика) ===== */
-body{font-family:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-h1,h2,h3,.label{font-family:"Unbounded","Manrope",system-ui,sans-serif;letter-spacing:-.01em}
-.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+/* ===== Типографика: Montserrat + Manrope ===== */
+body{font-family:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-weight:400;color:rgba(255,255,255,.7)}
+h1,h2,h3{font-family:"Montserrat",system-ui,sans-serif;font-weight:600;letter-spacing:-.02em;color:var(--text)}
+.label{font-family:"Montserrat",system-ui,sans-serif;font-weight:600;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text)}
+.lead,p,li,dd{color:rgba(255,255,255,.7)}
+.mono{font-variant-numeric:tabular-nums}
 
-/* ===== Кейс-карточка: Dark Glassmorphism ===== */
+/* ===== Кейс-карточка (правая колонка протокола) ===== */
 .case-card{
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.07);
   border-radius:20px;
-  padding:24px;
-  display:flex;flex-direction:column;gap:18px;
-  height:100%;
+  padding:28px;
+  display:flex;flex-direction:column;gap:20px;
 }
-.case-head h3{margin:6px 0 0;font-size:clamp(20px,2.2vw,26px);line-height:1.25}
-.case-desc{margin:0;color:var(--muted);font-size:15px;line-height:1.65}
+.case-badge{
+  display:inline-block;align-self:flex-start;
+  font-family:"Montserrat",sans-serif;font-weight:600;font-size:11px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--text);
+  padding:5px 12px;border:1px solid rgba(255,255,255,.1);border-radius:100px;
+  background:rgba(255,255,255,.03);
+}
+.case-head h3{margin:12px 0 0;font-size:clamp(20px,2.2vw,24px);line-height:1.3}
+.case-desc{margin:10px 0 0;font-size:15px;line-height:1.65}
 
-/* Слайдер До / После */
 .case-slider{
-  position:relative;height:300px;border-radius:12px;overflow:hidden;
-  border:1px solid rgba(255,255,255,.08);background:var(--bg-2);
-  touch-action:pan-y;user-select:none;-webkit-user-select:none;
+  position:relative;width:100%;aspect-ratio:16/10;max-height:300px;
+  border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.08);
+  background:var(--bg-2);touch-action:pan-y;user-select:none;-webkit-user-select:none;
 }
 .case-img{
   position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;pointer-events:none;display:block;
 }
-.case-img-before{clip-path:inset(0 50% 0 0)}
+.case-img-after{clip-path:inset(0 0 0 50%)}
 .case-divider{
   position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;
-  background:rgba(255,255,255,.9);box-shadow:0 0 12px rgba(0,0,0,.5);pointer-events:none;
+  background:rgba(255,255,255,.85);box-shadow:0 0 12px rgba(0,0,0,.5);pointer-events:none;
 }
 .case-handle{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
@@ -476,40 +483,36 @@ h1,h2,h3,.label{font-family:"Unbounded","Manrope",system-ui,sans-serif;letter-sp
   background:rgba(13,15,18,.72);border:1px solid rgba(255,255,255,.35);
   backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
   display:flex;align-items:center;justify-content:center;
+  cursor:ew-resize;
 }
-.case-handle::before{content:"‹ ›";color:#fff;font-size:14px;letter-spacing:2px}
+.case-handle::before{content:"‹ ›";color:#fff;font-size:14px;letter-spacing:2px;transform:translateY(1px)}
 .case-tag{
-  position:absolute;top:12px;font-size:12px;font-weight:600;color:var(--text);
-  background:rgba(10,12,16,.75);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  position:absolute;top:12px;font-family:"Manrope",sans-serif;font-size:12px;color:#fff;
+  background:rgba(10,12,16,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:4px 10px;
   pointer-events:none;
 }
 .case-tag-before{left:12px}
-.case-tag-after{right:12px;color:var(--cyan)}
+.case-tag-after{right:12px}
 .case-range{
   position:absolute;inset:0;width:100%;height:100%;
   opacity:0;cursor:ew-resize;margin:0;
   -webkit-appearance:none;appearance:none;
 }
-
-/* Пилюли-теги мета-информации */
-.case-meta{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.case-meta{display:flex;flex-wrap:wrap;gap:8px}
 .case-pill{
-  display:inline-block;font-size:12.5px;color:var(--muted);
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
-  border-radius:100px;padding:6px 14px;white-space:nowrap;
-  font-variant-numeric:tabular-nums;
+  display:inline-block;font-family:"Manrope",sans-serif;font-size:12px;
+  color:rgba(255,255,255,.7);background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);border-radius:100px;
+  padding:5px 12px;white-space:nowrap;
 }
-.case-pill b{color:var(--text);font-weight:600}
 .case-pill-strong{color:var(--text)}
 
-/* Адаптив карточки-кейса */
-@media (max-width:900px){
-  .ba-wrap{grid-template-columns:1fr}
+@media (max-width:760px){
   .case-card{padding:20px}
-  .case-slider{height:280px}
+  .case-slider{aspect-ratio:auto;height:260px}
 }
-@media (max-width:430px){
-  .case-slider{height:240px}
-  .case-pill{font-size:12px;padding:5px 12px}
+@media (max-width:420px){
+  .case-slider{height:220px}
+  .case-pill{font-size:11px;padding:4px 10px}
 }
