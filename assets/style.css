@@ -36,14 +36,12 @@ button{font:inherit;color:inherit}
 
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
 .mono{font-family:var(--mono);font-size:13px;letter-spacing:.02em}
-.label{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.label .tick{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--cyan);vertical-align:middle;margin-right:10px}
+.label{font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-variant-numeric:tabular-nums}
+/* Линия перед надзаголовком читается как «— ТАРИФЫ»: скрываем */
+.label .tick{display:none}
 
-.chrome{
-  background:var(--chrome);
-  -webkit-background-clip:text;background-clip:text;
-  color:transparent;
-}
+/* Акцентное слово: сплошной цвет вместо фольгированного градиента */
+.chrome{color:var(--cyan)}
 
 h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.025em;line-height:1.02}
 h2{font-size:clamp(34px,5vw,64px)}
@@ -82,7 +80,7 @@ p{margin:0}
 .logo{display:flex;flex-direction:column;line-height:1}
 .logo b{font-weight:700;font-size:19px;letter-spacing:.04em}
 .logo b span{font-weight:700}
-.logo small{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+.logo small{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:5px}
 .nav{display:flex;gap:28px;margin-left:auto}
 .nav a{font-size:15px;color:var(--muted);transition:color .2s}
 .nav a:hover,.nav a[aria-current="page"]{color:var(--text)}
@@ -102,7 +100,7 @@ p{margin:0}
 }
 .mnav.is-open{opacity:1;visibility:visible}
 .mnav a{font-size:30px;font-weight:600;letter-spacing:-.02em;padding:10px 0;border-bottom:1px solid var(--line)}
-.mnav .mono{margin-top:24px;color:var(--muted)}
+.mnav .mnav-meta{margin-top:24px;color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
 
 /* ===== Hero ===== */
 .hero{position:relative;padding:calc(var(--header-h) + clamp(40px,8vw,96px)) 0 0;overflow:hidden}
@@ -111,9 +109,11 @@ p{margin:0}
 .hero-lead{margin-top:32px;max-width:520px;font-size:clamp(17px,1.4vw,19px);color:#B7BDC4}
 .hero-lead em{font-style:normal;color:var(--text)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
-.hero-facts{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.hero-grid--top{align-items:start}
+.hero-facts{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.foot-copy{font-variant-numeric:tabular-nums}
 .hero-facts span{position:relative;padding-left:16px}
-.hero-facts span::before{content:"";position:absolute;left:0;top:50%;width:6px;height:1px;background:var(--cyan);transform:translateY(-50%)}
+.hero-facts span::before{content:"";position:absolute;left:0;top:50%;width:1px;height:12px;background:var(--line-2);transform:translateY(-50%)}
 .hero-facts span:first-child{padding-left:0}
 .hero-facts span:first-child::before{display:none}
 
@@ -124,14 +124,16 @@ p{margin:0}
 .hero-photo figcaption{position:absolute;left:20px;bottom:18px;z-index:2;color:#C9CED4}
 
 /* Линейный силуэт + волна (из обложки ВК) */
-.lineband{position:relative;margin-top:clamp(40px,6vw,80px);height:clamp(140px,18vw,240px);border-top:1px solid var(--line)}
+.lineband{position:relative;margin-top:clamp(32px,4vw,56px);height:clamp(80px,10vw,140px);border-top:1px solid var(--line)}
+/* Секция сразу после Hero: не складываем полный отступ с волной */
+.hero + .section{padding-top:clamp(48px,6vw,80px)}
 .lineband svg{position:absolute;inset:0;width:100%;height:100%}
 .lineband .wave path{fill:none;stroke:var(--cyan);stroke-width:1;vector-effect:non-scaling-stroke}
 
 /* ===== Секции ===== */
 .section{padding:clamp(80px,11vw,160px) 0}
-.section-head{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:end;margin-bottom:clamp(40px,5vw,64px)}
-.section-head p{color:var(--muted);max-width:460px;justify-self:start}
+.section-head{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:end;align-items:last baseline;margin-bottom:clamp(40px,5vw,64px)}
+.section-head p{color:var(--muted);max-width:460px;justify-self:start;margin:0}
 
 /* ===== Bento услуг ===== */
 .bento{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:auto auto;gap:16px}
@@ -141,16 +143,23 @@ p{margin:0}
 .card .media{position:absolute;inset:0;z-index:-1}
 .card .media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .card:hover .media img{transform:scale(1.035)}
-.card .media::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,12,16,.97) 0%,rgba(10,12,16,.92) 40%,rgba(10,12,16,.68) 65%,rgba(10,12,16,.3) 85%,rgba(10,12,16,.1) 100%)}
+.card .media::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,12,16,.96) 0%,rgba(10,12,16,.78) 60%,rgba(10,12,16,.25) 100%)}
 .card-body{padding:clamp(24px,3vw,40px);position:relative;z-index:1}
-.card:not(.card-wide) .card-body::before{content:"";position:absolute;left:0;right:0;bottom:0;top:-120%;z-index:-1;background:linear-gradient(to top,rgba(10,12,16,.95) 35%,rgba(10,12,16,.6) 70%,rgba(10,12,16,0) 100%)}
+.card .num{font-size:13px;font-weight:500;letter-spacing:.01em}
+.card .num .mono{margin-right:6px;opacity:.75}
 .card .num,.card h3,.card .card-meta,.card .bullets li,.card .price{text-shadow:0 1px 6px rgba(0,0,0,.45)}
-.card .num{display:inline-block;align-self:flex-start;color:var(--cyan);margin-bottom:14px;padding:4px 10px;border-radius:4px;background:rgba(10,12,16,.75);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+/* Мелкий кегль списков на светлых фото: приглушённый белый и плотная тень */
+.card .bullets li{color:#E8EDF2;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+/* Bento на главной: текст поднимается выше середины, верх оверлея плотнее */
+.bento .card .media::after{background:linear-gradient(to top,rgba(10,12,16,.96) 0%,rgba(10,12,16,.82) 55%,rgba(10,12,16,.45) 100%)}
+/* Малые карточки: текст занимает почти всю высоту, затемняем плотнее */
+.bento .card:not(.card-main) .media::after{background:linear-gradient(to top,rgba(10,12,16,.96) 0%,rgba(10,12,16,.88) 60%,rgba(10,12,16,.7) 100%)}
+.card .num{display:inline-block;align-self:flex-start;color:var(--cyan);margin:0 0 14px;padding:4px 10px;border-radius:4px;background:rgba(10,12,16,.82);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .card p{color:#B7BDC4;margin-top:12px;max-width:520px}
 .bullets{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:8px}
 .bullets li{position:relative;padding-left:18px;font-size:15px;color:#DDE1E6}
 .bullets li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--cyan)}
-.more{display:inline-flex;align-items:center;gap:10px;margin-top:24px;font-family:var(--mono);font-size:13px;color:var(--text);border-bottom:1px solid var(--line-2);padding-bottom:4px;transition:border-color .2s}
+.more{display:inline-flex;align-items:center;gap:10px;margin-top:24px;font-size:14px;font-weight:500;color:var(--text);border-bottom:1px solid var(--line-2);padding-bottom:4px;transition:border-color .2s}
 .card:hover .more{border-color:var(--cyan)}
 .card-link{position:absolute;inset:0;z-index:1}
 .card-wide .media{position:relative;inset:auto;flex:1.3;z-index:0}
@@ -173,7 +182,7 @@ p{margin:0}
 }
 
 /* ===== Хлебные крошки ===== */
-.crumbs{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--muted);flex-wrap:wrap}
+.crumbs{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);flex-wrap:wrap}
 .crumbs a{color:var(--muted)}
 .crumbs a:hover{color:var(--text)}
 .crumbs span{color:var(--text)}
@@ -222,7 +231,7 @@ p{margin:0}
 .footer nav{display:flex;flex-wrap:wrap;gap:12px 28px}
 .footer nav a{color:var(--muted);font-size:15px}
 .footer nav a:hover{color:var(--text)}
-.footer .mono{color:var(--muted)}
+.footer .mono,.footer .foot-copy{color:var(--muted);font-size:13px}
 
 /* ===== Липкая мобильная панель ===== */
 .mbar{display:none}
@@ -325,7 +334,15 @@ p{margin:0}
 
 /* ---- Тарифы: 3 равные колонки ---- */
 .tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
-.tiers .card{min-height:520px}
+.tiers .card{min-height:520px;justify-content:stretch}
+/* Бейдж всегда сверху, остальное прижато к низу: одинаковая позиция во всех тарифах */
+.tiers .card-body{flex:1;display:flex;flex-direction:column;justify-content:flex-start}
+/* Бейдж и заголовок на одной высоте во всех тарифах, цена прижата к низу */
+.tiers .card .num{margin-bottom:0}
+.tiers .card .num + h3{margin-top:20px}
+.tiers .card .price{margin-top:auto;padding-top:24px}
+/* Текст тарифов занимает всю карточку: оверлей плотный по всей высоте */
+.tiers .card .media::after{background:linear-gradient(to top,rgba(10,12,16,.96) 0%,rgba(10,12,16,.9) 55%,rgba(10,12,16,.78) 100%)}
 .tiers .card.is-featured{outline:1px solid rgba(63,192,240,.55);outline-offset:-1px}
 .tiers .card.is-featured::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--cyan);z-index:2}
 .card-meta{margin:8px 0 0;font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
@@ -335,6 +352,9 @@ p{margin:0}
 /* ---- Две карточки вровень ---- */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch}
 .duo .card{min-height:440px}
+.duo .card-body{display:flex;flex-direction:column;height:100%}
+.duo-cta{margin-top:auto;align-self:flex-start;white-space:nowrap}
+.duo .bullets{margin-bottom:28px}
 
 /* ---- Сравнение: «делает / не делает» ---- */
 .compare{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
@@ -375,11 +395,26 @@ p{margin:0}
 .card-row .media::after{background:linear-gradient(90deg,rgba(18,21,26,0) 55%,var(--bg-2) 100%)}
 .card-row .card-body{display:flex;flex-direction:column;justify-content:center}
 
+/* ---- Кейс: текст слева, крупное фото справа ---- */
+.case{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(32px,5vw,72px);align-items:start}
+.case-head{position:sticky;top:calc(var(--header-h) + 32px)}
+.case-head h2{font-size:clamp(32px,4vw,52px)}
+.case-head p{color:var(--muted);margin-top:20px;max-width:380px}
+.case-figure{margin:0;border:1px solid rgba(255,255,255,.08);border-radius:8px;overflow:hidden;background:var(--bg-2)}
+.case-figure img{display:block;width:100%;aspect-ratio:16/10;height:auto;object-fit:cover}
+.case-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.case-stats div{padding:18px 20px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.case-stats div + div{border-left:1px solid var(--line)}
+.case-stats span{font-size:13px;color:var(--muted)}
+.case-stats b{font-size:16px;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums}
+
 /* ---- Адаптив ---- */
 @media (max-width:1080px){
   .tiers{grid-template-columns:1fr 1fr}
   .tiers .card:last-child{grid-column:1 / -1;min-height:420px}
   .map-block{aspect-ratio:16/9}
+  .case{grid-template-columns:1fr;align-items:start}
+  .case-head p{max-width:560px}
 }
 @media (max-width:760px){
   .tiers,.duo,.compare,.ba{grid-template-columns:1fr}
@@ -395,4 +430,8 @@ p{margin:0}
   .map-panel{position:static;transform:none;width:auto;border-radius:0;border-width:1px 0 0}
   .lead-form{max-width:none}
   .lead-form .btn{justify-self:stretch;justify-content:center}
+  .case-stats{grid-template-columns:1fr 1fr}
+  .case-stats div + div{border-left:0}
+  .case-stats div:nth-child(even){border-left:1px solid var(--line)}
+  .case-stats div:nth-child(n+3){border-top:1px solid var(--line)}
 }
