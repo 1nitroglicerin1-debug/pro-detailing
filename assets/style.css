@@ -166,6 +166,7 @@ p{margin:0}
 .card .num{font-size:13px;font-weight:500;letter-spacing:.01em}
 .card .num .mono{margin-right:6px;opacity:.75}
 .card .num,.card h3,.card .card-meta,.card .bullets li,.card .price{text-shadow:0 1px 6px rgba(0,0,0,.45)}
+.tiers .badge{position:absolute;top:16px;right:16px;z-index:2;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#04111A;background:#3FC0F0;padding:5px 11px;border-radius:4px;box-shadow:0 6px 18px rgba(0,0,0,.45)}
 /* Мелкий кегль списков на светлых фото: приглушённый белый и плотная тень */
 .card .bullets li{color:#E8EDF2;text-shadow:0 1px 3px rgba(0,0,0,.6)}
 /* Bento на главной: текст поднимается выше середины, верх оверлея плотнее */
@@ -366,7 +367,7 @@ p{margin:0}
 .tiers .card .price{margin-top:auto;padding-top:24px}
   .tiers .card .media{opacity:.55}
   .tiers .card .media::after{background:linear-gradient(to top,rgba(10,12,16,.97) 0%,rgba(10,12,16,.93) 60%,rgba(10,12,16,.82) 100%)}
-.tiers .card.is-featured{outline:1px solid rgba(63,192,240,.55);outline-offset:-1px}
+.tiers .card.is-featured{outline:1px solid rgba(63,192,240,.55);outline-offset:-1px;border:1px solid transparent}
 .tiers .card.is-featured::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--cyan);z-index:2}
 .card-meta{margin:8px 0 0;font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
 .price{display:block;margin-top:18px;font-size:22px;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums}

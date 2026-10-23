@@ -186,11 +186,27 @@
           <label class="field">Телефон
             <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required placeholder="+7 (___) ___-__-__">
           </label>
-          <label class="field">Что нужно сделать
-            <input type="text" name="car" required maxlength="80" placeholder="Например, керамика на Camry">
+          <label class="field">Марка и модель авто
+            <input type="text" name="car" required maxlength="80" placeholder="Например, BMW 5 Series">
+          </label>
+          <label class="field">Филиал
+            <select name="branch" required>
+              <option value="ул. Щорса, 128">ул. Щорса, 128 (Автовокзал)</option>
+              <option value="ул. Луганская, 59, корп. 1А">ул. Луганская, 59, корп. 1А (Ботаника)</option>
+            </select>
+          </label>
+          <label class="field">Услуга
+            <select name="service" required>
+              <option value="" disabled selected>Выберите услугу</option>
+              <option value="Полировка и керамика">Полировка и керамика</option>
+              <option value="Химчистка салона">Химчистка салона</option>
+              <option value="Оклейка защитной плёнкой">Оклейка защитной плёнкой</option>
+              <option value="PDR и ремонт стёкол">PDR и ремонт стёкол</option>
+              <option value="Комплексный детейлинг">Комплексный детейлинг</option>
+            </select>
           </label>
           <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <button class="btn btn-primary" type="submit">Отправить заявку <span class="arr" aria-hidden="true">→</span></button>
+          <button class="btn btn-primary" type="submit">Рассчитать стоимость <span class="arr" aria-hidden="true">→</span></button>
           <p class="form-note">Перезвоним в течение 15 минут в рабочее время.</p>
           <p class="form-status" role="status" aria-live="polite" data-form-status></p>
         </form>
@@ -204,7 +220,7 @@
           </div>
           <div class="c-row">
             <span class="label">Адреса</span>
-            <span>• ул. Щорса, 128 (Автовокзал)<br>• ул. Луганская, 59, корп. 1А (Ботаника)</span>
+            <span>ул. Щорса, 128 (Автовокзал)<br>ул. Луганская, 59, корп. 1А (Ботаника)</span>
           </div>
           <div class="c-row">
             <span class="label">Часы</span>
@@ -333,7 +349,7 @@
     if (shield) shield.addEventListener('click', function () { m.classList.add('is-active'); });
   });
 
-  /* ---- Форма заявки ---- */
+    /* ---- Форма заявки ---- */
   var form = document.getElementById('lead');
   if (form) {
     var statusEl = form.querySelector('[data-form-status]');
@@ -342,10 +358,12 @@
       var name = form.elements.name.value.trim();
       var phone = form.elements.phone.value.trim();
       var car = form.elements.car.value.trim();
+      var branch = form.elements.branch.value;
+      var service = form.elements.service.value;
       form.classList.add('was-validated');
-      if (name.length < 2 || phone.replace(/\D/g, '').length < 10 || car.length < 2) {
+      if (name.length < 2 || phone.replace(/\D/g, '').length < 10 || car.length < 2 || service === '') {
         statusEl.classList.add('is-error');
-        statusEl.textContent = 'Заполните имя, телефон (10 цифр) и описание задачи.';
+        statusEl.textContent = 'Заполните имя, телефон, марку авто и выберите услугу.';
         return;
       }
       statusEl.classList.remove('is-error');
@@ -355,7 +373,14 @@
       fetch(form.action, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name, phone: phone, car: car, page: 'kontakty' })
+        body: JSON.stringify({
+          name: name,
+          phone: phone,
+          car: car,
+          branch: branch,
+          service: service,
+          page: form.elements.page ? form.elements.page.value : ''
+        })
       }).then(function (r) {
         if (!r.ok) throw new Error('bad status');
         statusEl.textContent = 'Заявка принята. Мастер перезвонит в течение 15 минут в рабочее время.';
