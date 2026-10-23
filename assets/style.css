@@ -261,7 +261,9 @@ p{margin:0}
   .sheet-row{grid-template-columns:40px 1fr}
   .sheet-row dd{grid-column:2}
   .c-row{grid-template-columns:1fr;gap:4px}
-  .ba{aspect-ratio:4/3}
+  .ba{display:grid;grid-template-columns:1fr;gap:16px;aspect-ratio:auto}
+  .ba-shot{position:relative;margin:0;width:100%;height:auto;aspect-ratio:16/10;overflow:hidden;border-radius:8px}
+  .ba-shot img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
   .mbar{
     display:grid;grid-template-columns:1fr 1fr;gap:8px;
     position:fixed;left:0;right:0;bottom:0;z-index:100;
