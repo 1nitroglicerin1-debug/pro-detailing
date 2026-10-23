@@ -29,7 +29,7 @@
   /* Хром: только логотип и крупные заголовки */
   --chrome:linear-gradient(176deg,#FFFFFF 0%,#D9DEE4 30%,#8E969F 49%,#5E656D 53%,#C9CFD6 72%,#F2F4F6 100%);
   --sans:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --display:"Garamond Libre","Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,serif;
+  --display:"Inter Tight",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --mono:var(--sans);
   --ease:cubic-bezier(.2,.7,.1,1);
   --wrap:1280px;
